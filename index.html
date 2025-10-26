@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Resources for Learning — My Links</title>
+  <title>VENKAT'S Digital Room</title>
 
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -16,28 +16,18 @@
       --accent:#e86a2b;
       --link:#103d7a;
     }
-    /* Reset-ish */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
       min-height:100%;
       font-family: "Inter",system-ui,Arial,Helvetica,sans-serif;
-      background:   linear-gradient(to right, #ff7e5f, #feb47b);
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
       color:#ddd;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
       padding:20px;
       display:flex;
       justify-content:center;
     }
-
-    .wrap{
-      width:100%;
-      max-width:920px;
-      margin:0 auto 60px;
-    }
-
-    /* Hero title card */
+    .wrap{width:100%; max-width:920px; margin:0 auto 60px;}
     .hero{
       background:var(--card);
       color:var(--muted);
@@ -48,15 +38,13 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.45);
     }
     .hero h1{
-      font-family: "Montserrat", "Trebuchet MS", sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-weight:900;
       font-size:clamp(28px,6vw,54px);
-      letter-spacing:1px;
       line-height:1.05;
     }
     .hero p{margin-top:6px;color:#444;font-weight:600}
 
-    /* Sections */
     .section{
       background:var(--card);
       color:var(--muted);
@@ -73,12 +61,11 @@
     }
 
     ul.links{
-      list-style: none;
-      padding-left:18px;
+      list-style:none;
+      padding-left:0;
       margin-top:8px;
     }
     ul.links li{
-      display:block;
       margin:10px 0;
       font-size:16px;
     }
@@ -102,7 +89,6 @@
     a.resource:hover::after{ transform:translateY(-3px) scale(1.06); }
     a.resource:hover{ color:var(--accent) }
 
-    /* small badges and helpers */
     .meta{
       display:flex;
       align-items:center;
@@ -120,7 +106,6 @@
       font-size:13px;
     }
 
-    /* footer */
     footer{
       color:#bbb;
       text-align:center;
@@ -128,7 +113,6 @@
       font-size:13px;
     }
 
-    /* Responsive tweaks */
     @media (min-width:880px){
       .grid{
         display:grid;
@@ -141,98 +125,92 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="hero" role="banner">
+    <div class="hero">
       <h1>VENKAT'S<br>DIGITAL ROOM</h1>
       <p>All your favorite tutorial channels and playlists — one place.</p>
     </div>
 
-    <!-- HTML & CSS -->
-    <section class="section" aria-labelledby="htmlcss">
-      <h2 id="htmlcss">C-LANGUAGE&amp;C++ Java</h2>
+    <!-- C & C++ / Java -->
+    <section class="section">
+      <h2>C-LANGUAGE & C++ / Java</h2>
       <div class="meta">
         <span class="badge">Beginner</span>
         <span>Curated playlist links</span>
       </div>
-      <ul class="links" aria-label="c-Lang Links">
-        <li><a class="resource" heref="https://youtu.be/uLfCFa1Vaj0?si=IwoyETFqjSB0G-g6" target="_blank" rel="noopener">Python Life C Lang (telugu) </a></li>
+      <ul class="links">
+        <li><a class="resource" href="https://youtu.be/uLfCFa1Vaj0?si=IwoyETFqjSB0G-g6" target="_blank" rel="noopener">Python Life C Lang (Telugu)</a></li>
         <li><a class="resource" href="https://youtube.com/playlist?list=PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt&si=T9rWAcVA1kPeat1U" target="_blank" rel="noopener">Physics Wallah C (Hindi)</a></li>
-        <li><a class="resource" href="https://youtu.be/xND0t1pr3KY?si=3L9GHaawQNHsu44w" target="_blank" rel="noopener">Bro code (English)</a></li>
+        <li><a class="resource" href="https://youtu.be/xND0t1pr3KY?si=3L9GHaawQNHsu44w" target="_blank" rel="noopener">Bro Code (English)</a></li>
         <li><a class="resource" href="https://youtu.be/-TkoO8Z07hI?si=osO0mAvMrjEgZRTy" target="_blank" rel="noopener">Bro Code C++ (English)</a></li>
         <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&si=RlZryGibMbuDAB2k" target="_blank" rel="noopener">Telsuko Java (English)</a></li>
       </ul>
-      </section>
-      </div>  
+    </section>
 
-    <div class="grid" style="margin-top:10px">
-      <section class="section" aria-labelledby="js">
-        <h2 id="js">htmlt</h2>
-        <div class="meta">
-          <span class="badge">Beginner</span>
-          <span>Interactive & projects</span>
-        </div>
-        <ul class="links" aria-label="Html Links">
-         <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank" rel="noopener">College Wallah - HTML/CSS (Hindi)</a></li>
-        <li><a class="resource" href="https://www.youtube.com/@Swaroop" target="_blank" rel="noopener">Swaroop - HTML Tutorial (Telugu)</a></li>
-        <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank" rel="noopener">PythonLife - HTML / CSS (Telugu)</a></li>
-      </ul>
-      </section> 
-        </div>  
-    
-
-    <!-- grid for other sections -->
-    <div class="grid" style="margin-top:10px">
-      <section class="section" aria-labelledby="js">
-        <h2 id="js">JavaScript</h2>
-        <div class="meta">
-          <span class="badge">Core</span>
-          <span>Interactive & projects</span>
-        </div>
-        <ul class="links" aria-label="JavaScript Links">
-          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" rel="noopener">Apna College - JavaScript (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank" rel="noopener">College Wallah - JavaScript (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank" rel="noopener">PythonLife - JavaScript (Telugu)</a></li>
-        </ul>
-      </section>
-
-      <section class="section" aria-labelledby="git">
-        <h2 id="git">Version Control with Git</h2>
-        <div class="meta">
-          <span class="badge">Must Know</span>
-          <span>Workflow & GitHub</span>
-        </div>
-        <ul class="links" aria-label="Git Links">
-          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" rel="noopener">Git &amp; GitHub - Apna College (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@AlphaKnowledge" target="_blank" rel="noopener">Alpha Knowledge - Git (Telugu)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@WscubeTech" target="_blank" rel="noopener">WsCube Git (English)</a></li>
-        </ul>
-      </section>
-    </div>
-
-    <!-- Extras -->
-    <section class="section" aria-labelledby="extras" style="margin-top:18px">
-      <h2 id="extras">Python</h2>
-      <ul class="links" aria-label="python links">
-        <li><a class="resource" href="https://youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0&si=HkUSt1cCjaoWd2xs" target="_blank" rel="noopener">Alpha College Python ( Hindi) </a></li>
-        <li><a class="resource" href="https://youtube.com/playlist?list=PLBlnK6fEyqRiueC_HzwFallNO76hfXBB7&si=8rwne_DkzEMThWpG" target="_blank" rel="noopener">Neso Academy Python (English)</a></li>
-        <li><a class="resource" href="https://youtu.be/fHKPQEVCX-s?si=tAg9HPPL-Hptkp9v" target="_blank" rel="noopener">Swaroop Python (telugu)</a></li>
-        <li><a class="resource" href="https://youtu.be/h1WdbfoHeac?si=3RmXs42jUqSTHzOl" target="_blank" rel="noopener">Python Life Python (telugu)</a></li>
-        <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&si=GjnMLTYw6p_LOqnd" target="_blank" rel="noopener">Telsuko Python (English)</a></li> 
-      </ul>
-      </section>
+    <!-- HTML & CSS -->
+    <section class="section">
+      <h2>HTML & CSS</h2>
+      <div class="meta">
+        <span class="badge">Beginner</span>
+        <span>Interactive & projects</span>
       </div>
+      <ul class="links">
+        <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank" rel="noopener">College Wallah - HTML/CSS (Hindi)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@Swaroop" target="_blank" rel="noopener">Swaroop - HTML Tutorial (Telugu)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank" rel="noopener">PythonLife - HTML/CSS (Telugu)</a></li>
+      </ul>
+    </section>
 
-  
-    <div class="grid" style="margin-top:10px">
-      <section class="section" aria-labelledby="extras" style="margin-top:18px">
-      <h2 id="extras">Learn New</h2>
-      <ul class="links" aria-label="Important to watch">
-      <li><a class="resource" href="https://youtu.be/_lChLN570VI?si=djGWjL1Ti5dn3lpS" target="_blank" rel="noopener">Built an app</a></li>
-      <li><a class="resource" href="https://youtu.be/dJeSe2RyoN4?si=I8pjjyKgQuveT2nI" target="_blank" rel="noopener">UPSC</a></li>
-      <li><a class="resource" href="https://youtu.be/rmqSS3IQ4d0?si=oniyAZQDm2AwaEb3" target="_blank" rel="noopener">Mahabharat</a></li>
-      <li><a class="resource" href="https://youtu.be/TixjiIkB2zU?si=tak2LBLXRpLC_ogS" target="_blank" rel="noopener">Mock interview</a></li> 
-      <li><a class="resource" href="https://drive.google.com/drive/u/0/folders/0BwrkXzyUvQ_gbnZ3TjBxbkd0azA?resourcekey=0-hz2Xp1GCdFBAJXVJWIpiAg" target="_blank" rel="noopener">Drive for Aptitude</a></li> 
-      <li><a class="resource" href="https://btechvault.vercel.app" target="_blank" rel="noopener">B tech imp pdf</a></li>
-      <li><a class="resource" href="https://share.google/a5astbvuXa7aGQ7Gj" target="_blank" rel="noopener">India Bix aptitude</a></li> 
+    <!-- JavaScript -->
+    <section class="section">
+      <h2>JavaScript</h2>
+      <div class="meta">
+        <span class="badge">Core</span>
+        <span>Interactive & projects</span>
+      </div>
+      <ul class="links">
+        <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" rel="noopener">Apna College - JavaScript (Hindi)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank" rel="noopener">College Wallah - JavaScript (Hindi)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank" rel="noopener">PythonLife - JavaScript (Telugu)</a></li>
+      </ul>
+    </section>
+
+    <!-- Git -->
+    <section class="section">
+      <h2>Version Control with Git</h2>
+      <div class="meta">
+        <span class="badge">Must Know</span>
+        <span>Workflow & GitHub</span>
+      </div>
+      <ul class="links">
+        <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" rel="noopener">Git & GitHub - Apna College (Hindi)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@AlphaKnowledge" target="_blank" rel="noopener">Alpha Knowledge - Git (Telugu)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@WscubeTech" target="_blank" rel="noopener">WsCube Git (English)</a></li>
+      </ul>
+    </section>
+
+    <!-- Python -->
+    <section class="section">
+      <h2>Python</h2>
+      <ul class="links">
+        <li><a class="resource" href="https://youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0&si=HkUSt1cCjaoWd2xs" target="_blank" rel="noopener">Alpha College Python (Hindi)</a></li>
+        <li><a class="resource" href="https://youtube.com/playlist?list=PLBlnK6fEyqRiueC_HzwFallNO76hfXBB7&si=8rwne_DkzEMThWpG" target="_blank" rel="noopener">Neso Academy Python (English)</a></li>
+        <li><a class="resource" href="https://youtu.be/fHKPQEVCX-s?si=tAg9HPPL-Hptkp9v" target="_blank" rel="noopener">Swaroop Python (Telugu)</a></li>
+        <li><a class="resource" href="https://youtu.be/h1WdbfoHeac?si=3RmXs42jUqSTHzOl" target="_blank" rel="noopener">Python Life Python (Telugu)</a></li>
+        <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&si=GjnMLTYw6p_LOqnd" target="_blank" rel="noopener">Telsuko Python (English)</a></li>
+      </ul>
+    </section>
+
+    <!-- Learn New -->
+    <section class="section">
+      <h2>Learn New</h2>
+      <ul class="links">
+        <li><a class="resource" href="https://youtu.be/_lChLN570VI?si=djGWjL1Ti5dn3lpS" target="_blank" rel="noopener">Built an app</a></li>
+        <li><a class="resource" href="https://youtu.be/dJeSe2RyoN4?si=I8pjjyKgQuveT2nI" target="_blank" rel="noopener">UPSC</a></li>
+        <li><a class="resource" href="https://youtu.be/rmqSS3IQ4d0?si=oniyAZQDm2AwaEb3" target="_blank" rel="noopener">Mahabharat</a></li>
+        <li><a class="resource" href="https://youtu.be/TixjiIkB2zU?si=tak2LBLXRpLC_ogS" target="_blank" rel="noopener">Mock interview</a></li>
+        <li><a class="resource" href="https://drive.google.com/drive/u/0/folders/0BwrkXzyUvQ_gbnZ3TjBxbkd0azA?resourcekey=0-hz2Xp1GCdFBAJXVJWIpiAg" target="_blank" rel="noopener">Drive for Aptitude</a></li>
+        <li><a class="resource" href="https://btechvault.vercel.app" target="_blank" rel="noopener">B Tech imp PDF</a></li>
+        <li><a class="resource" href="https://share.google/a5astbvuXa7aGQ7Gj" target="_blank" rel="noopener">India Bix Aptitude</a></li>
       </ul>
       <p style="margin-top:10px;font-size:13px;color:#5c5c5c">
         Tip: press and hold any link to open in a new tab on mobile, or use the ⤴ icon to open externally.
@@ -244,4 +222,4 @@
     </footer>
   </div>
 </body>
-  </html>
+</html>
