@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resources for Learning — My Links</title>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --card:#dedede;
+      --muted:#222;
+      --accent:#e86a2b;
+      --link:#103d7a;
+    }
+    /* Reset-ish */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      min-height:100%;
+      font-family: "Inter",system-ui,Arial,Helvetica,sans-serif;
+      background: linear-gradient(180deg,#070708 0%, var(--bg) 120%);
+      color:#ddd;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:920px;
+      margin:0 auto 60px;
+    }
+
+    /* Hero title card */
+    .hero{
+      background:var(--card);
+      color:var(--muted);
+      border-radius:18px;
+      padding:34px 20px;
+      margin-bottom:22px;
+      text-align:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+    .hero h1{
+      font-family: "Montserrat", "Trebuchet MS", sans-serif;
+      font-weight:900;
+      font-size:clamp(28px,6vw,54px);
+      letter-spacing:1px;
+      line-height:1.05;
+    }
+    .hero p{margin-top:6px;color:#444;font-weight:600}
+
+    /* Sections */
+    .section{
+      background:var(--card);
+      color:var(--muted);
+      border-radius:14px;
+      padding:20px;
+      margin-bottom:18px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+    }
+    .section h2{
+      font-family:"Montserrat",sans-serif;
+      font-weight:800;
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    ul.links{
+      list-style: none;
+      padding-left:18px;
+      margin-top:8px;
+    }
+    ul.links li{
+      display:block;
+      margin:10px 0;
+      font-size:16px;
+    }
+    a.resource{
+      text-decoration:none;
+      color:var(--link);
+      font-weight:600;
+      display:inline-block;
+      position:relative;
+      padding-right:18px;
+    }
+    a.resource::after{
+      content:"↗";
+      position:absolute;
+      right:0;
+      transform:translateY(-1px);
+      color:var(--accent);
+      font-weight:700;
+      transition:transform .18s ease;
+    }
+    a.resource:hover::after{ transform:translateY(-3px) scale(1.06); }
+    a.resource:hover{ color:var(--accent) }
+
+    /* small badges and helpers */
+    .meta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:10px;
+      font-size:13px;
+      color:#555;
+    }
+    .badge{
+      background:#eee;
+      color:#333;
+      border-radius:999px;
+      padding:6px 10px;
+      font-weight:700;
+      font-size:13px;
+    }
+
+    /* footer */
+    footer{
+      color:#bbb;
+      text-align:center;
+      margin-top:12px;
+      font-size:13px;
+    }
+
+    /* Responsive tweaks */
+    @media (min-width:880px){
+      .grid{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:18px;
+      }
+      .hero{text-align:left}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero" role="banner">
+      <h1>Resources for<br>Learning Technologies</h1>
+      <p>All your favorite tutorial channels and playlists — one place.</p>
+    </div>
+
+    <!-- HTML & CSS -->
+    <section class="section" aria-labelledby="htmlcss">
+      <h2 id="htmlcss">HTML &amp; CSS</h2>
+      <div class="meta">
+        <span class="badge">Beginner</span>
+        <span>Curated playlist links</span>
+      </div>
+      <ul class="links" aria-label="HTML and CSS Links">
+        <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" rel="noopener">Apna College - HTML (Hindi)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" rel="noopener">Apna College - CSS (Hindi)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank" rel="noopener">College Wallah - HTML/CSS (Hindi)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@Swaroop" target="_blank" rel="noopener">Swaroop - HTML Tutorial (Telugu)</a></li>
+        <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank" rel="noopener">PythonLife - HTML / CSS (Telugu)</a></li>
+      </ul>
+    </section>
+
+    <!-- grid for other sections -->
+    <div class="grid" style="margin-top:10px">
+      <section class="section" aria-labelledby="js">
+        <h2 id="js">JavaScript</h2>
+        <div class="meta">
+          <span class="badge">Core</span>
+          <span>Interactive & projects</span>
+        </div>
+        <ul class="links" aria-label="JavaScript Links">
+          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" rel="noopener">Apna College - JavaScript (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank" rel="noopener">College Wallah - JavaScript (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank" rel="noopener">PythonLife - JavaScript (Telugu)</a></li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="git">
+        <h2 id="git">Version Control with Git</h2>
+        <div class="meta">
+          <span class="badge">Must Know</span>
+          <span>Workflow & GitHub</span>
+        </div>
+        <ul class="links" aria-label="Git Links">
+          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" rel="noopener">Git &amp; GitHub - Apna College (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@AlphaKnowledge" target="_blank" rel="noopener">Alpha Knowledge - Git (Telugu)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@WscubeTech" target="_blank" rel="noopener">WsCube Git (English)</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Extras -->
+    <section class="section" aria-labelledby="extras" style="margin-top:18px">
+      <h2 id="extras">Other favorites</h2>
+      <ul class="links" aria-label="Other links">
+        <li><a class="resource" href="https://www.youtube.com/playlist?list=PLsomething" target="_blank" rel="noopener">Frontend Projects playlist</a></li>
+        <li><a class="resource" href="https://youtube.com" target="_blank" rel="noopener">Create your own playlists</a></li>
+      </ul>
+      <p style="margin-top:10px;font-size:13px;color:#5c5c5c">
+        Tip: press and hold any link to open in a new tab on mobile, or use the ⤴ icon to open externally.
+      </p>
+    </section>
+
+    <footer>
+      Built with ❤️ — copy this file into <code>index.html</code> and publish with GitHub Pages.
+    </footer>
+  </div>
+</body>
+  </html>
