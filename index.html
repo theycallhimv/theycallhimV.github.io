@@ -1,169 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VENKAT'S DIGITAL ROOM</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --shadow: rgba(0, 0, 0, 0.25);
-      --accent: #ff6f61;
+      --accent:#e86a2b;
+      --shadow:rgba(0,0,0,0.25);
+      --c:#ffefcf;
+      --html:#d2e7ff;
+      --js:#fff4cc;
+      --git:#e4d7ff;
+      --python:#d3f8d3;
+      --learn:#ffd9e8;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { height:100%; scroll-behavior:smooth; }
 
     body {
-      font-family: "Inter", sans-serif;
-      background: linear-gradient(-45deg, #ff7e5f, #feb47b, #6dd5ed, #2193b0);
+      font-family:"Inter", system-ui, Arial, sans-serif;
+      color:#222;
+      display:flex;
+      justify-content:center;
+      background: linear-gradient(-45deg, #fde3cf, #f6e2ff, #d3f8d3, #ffd9e8);
       background-size: 400% 400%;
-      animation: gradientMove 10s ease infinite;
-      color: #222;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
+      animation: gradientMove 15s ease infinite;
+      padding:20px;
     }
 
     @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100% { background-position:0% 50%; }
     }
 
     .wrap {
-      width: 100%;
-      max-width: 1000px;
+      width:100%;
+      max-width:960px;
+      margin:0 auto 60px;
     }
 
-    /* Hero Section */
+    /* Profile */
+    .profile {
+      text-align:center;
+      margin-bottom:18px;
+    }
+    .profile img {
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      object-fit:cover;
+      box-shadow:0 6px 16px var(--shadow);
+      border:3px solid white;
+    }
+
+    /* Hero */
     .hero {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 10px 30px var(--shadow);
-      margin-bottom: 30px;
-      position: relative;
+      background:#fff;
+      border-radius:18px;
+      padding:30px 20px;
+      margin-bottom:25px;
+      text-align:center;
+      box-shadow:0 10px 30px var(--shadow);
     }
-
-    .hero img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 20px var(--shadow);
-      margin-bottom: 15px;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
     .hero h1 {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 900;
-      font-size: clamp(28px, 6vw, 50px);
-      color: #222;
+      font-family:"Montserrat", sans-serif;
+      font-weight:900;
+      font-size:clamp(28px,6vw,54px);
+      line-height:1.1;
+      color:#222;
     }
-
     .hero p {
-      font-weight: 600;
-      color: #555;
-      margin-top: 10px;
+      margin-top:8px;
+      color:#555;
+      font-weight:600;
     }
 
-    /* Grid Layout */
+    /* Grid layout */
     .grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: 1fr;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+    @media(min-width:880px){
+      .grid{ grid-template-columns:1fr 1fr; }
     }
 
-    @media (min-width: 800px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    /* Card Styles */
     .section {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 25px var(--shadow);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(6px);
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 6px 20px var(--shadow);
+      transition: transform .25s, box-shadow .25s;
     }
-
     .section:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      transform:translateY(-4px);
+      box-shadow:0 10px 28px rgba(0,0,0,0.3);
     }
 
     .section h2 {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 800;
-      margin-bottom: 12px;
-      color: var(--accent);
+      font-family:"Montserrat", sans-serif;
+      font-weight:800;
+      font-size:22px;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
 
     ul.links {
-      list-style: none;
-      margin-top: 8px;
+      list-style:none;
+      padding-left:0;
     }
-
     ul.links li {
-      margin: 10px 0;
+      margin:8px 0;
+      font-size:15px;
     }
-
     a.resource {
-      text-decoration: none;
-      font-weight: 600;
-      color: #1a3c66;
-      transition: color 0.3s;
-      position: relative;
+      text-decoration:none;
+      color:#0b3c7a;
+      font-weight:600;
+      position:relative;
+      padding-right:18px;
     }
-
     a.resource::after {
-      content: " ↗";
-      color: var(--accent);
-      transition: 0.3s;
+      content:"↗";
+      position:absolute;
+      right:0;
+      transform:translateY(-1px);
+      color:var(--accent);
+      font-weight:700;
+      transition:transform .2s ease;
     }
+    a.resource:hover::after { transform:translateY(-3px) scale(1.1); }
+    a.resource:hover { color:var(--accent); }
 
-    a.resource:hover {
-      color: var(--accent);
-    }
-
-    /* Footer */
     footer {
-      text-align: center;
-      color: #fff;
-      margin-top: 30px;
-      font-size: 14px;
-      opacity: 0.9;
+      text-align:center;
+      font-size:13px;
+      color:#444;
+      margin-top:25px;
     }
+
+    /* Section colors */
+    .c-section { background:var(--c); }
+    .html-section { background:var(--html); }
+    .js-section { background:var(--js); }
+    .git-section { background:var(--git); }
+    .python-section { background:var(--python); }
+    .learn-section { background:var(--learn); }
   </style>
 </head>
 
 <body>
   <div class="wrap">
+    <div class="profile">
+      <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat" class="profile-pic" />
+    </div>
+
     <div class="hero">
-      <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat's Photo">
-      <h1>VENKAT'S DIGITAL ROOM</h1>
-      <p>WITH GREAT POWERS COMES GREAT RESPONSIBILITES.</p>
+      <h1>VENKAT'S<br>DIGITAL ROOM</h1>
+      <p>All your favorite tutorial channels and playlists — one place.</p>
     </div>
 
     <div class="grid">
       <!-- C & C++ / Java -->
-      <section class="section">
+      <section class="section c-section">
         <h2>💻 C & C++ / Java</h2>
         <ul class="links">
           <li><a class="resource" href="https://youtu.be/uLfCFa1Vaj0?si=IwoyETFqjSB0G-g6" target="_blank">Python Life C Lang (Telugu)</a></li>
@@ -175,63 +182,64 @@
       </section>
 
       <!-- HTML & CSS -->
-      <section class="section">
+      <section class="section html-section">
         <h2>🌐 HTML & CSS</h2>
         <ul class="links">
-          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@Swaroop" target="_blank">Swaroop - HTML (Telugu)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah - HTML/CSS (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@Swaroop" target="_blank">Swaroop - HTML Tutorial (Telugu)</a></li>
           <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank">PythonLife - HTML/CSS (Telugu)</a></li>
         </ul>
       </section>
 
       <!-- JavaScript -->
-      <section class="section">
+      <section class="section js-section">
         <h2>📜 JavaScript</h2>
         <ul class="links">
-          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Apna College (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank">PythonLife (Telugu)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Apna College - JavaScript (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah - JavaScript (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank">PythonLife - JavaScript (Telugu)</a></li>
         </ul>
       </section>
 
       <!-- Git -->
-      <section class="section">
+      <section class="section git-section">
         <h2>🗂️ Git</h2>
         <ul class="links">
-          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Apna College (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@AlphaKnowledge" target="_blank">Alpha Knowledge (Telugu)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@WscubeTech" target="_blank">WsCube Tech (English)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Git & GitHub - Apna College (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@AlphaKnowledge" target="_blank">Alpha Knowledge - Git (Telugu)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@WscubeTech" target="_blank">WsCube Git (English)</a></li>
         </ul>
       </section>
 
       <!-- Python -->
-      <section class="section">
+      <section class="section python-section">
         <h2>🐍 Python</h2>
         <ul class="links">
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0&si=HkUSt1cCjaoWd2xs" target="_blank">Alpha College (Hindi)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLBlnK6fEyqRiueC_HzwFallNO76hfXBB7&si=8rwne_DkzEMThWpG" target="_blank">Neso Academy (English)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0&si=HkUSt1cCjaoWd2xs" target="_blank">Alpha College Python (Hindi)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLBlnK6fEyqRiueC_HzwFallNO76hfXBB7&si=8rwne_DkzEMThWpG" target="_blank">Neso Academy Python (English)</a></li>
           <li><a class="resource" href="https://youtu.be/fHKPQEVCX-s?si=tAg9HPPL-Hptkp9v" target="_blank">Swaroop Python (Telugu)</a></li>
-          <li><a class="resource" href="https://youtu.be/h1WdbfoHeac?si=3RmXs42jUqSTHzOl" target="_blank">Python Life (Telugu)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&si=GjnMLTYw6p_LOqnd" target="_blank">Telsuko (English)</a></li>
+          <li><a class="resource" href="https://youtu.be/h1WdbfoHeac?si=3RmXs42jUqSTHzOl" target="_blank">Python Life Python (Telugu)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&si=GjnMLTYw6p_LOqnd" target="_blank">Telsuko Python (English)</a></li>
         </ul>
       </section>
 
       <!-- Learn New -->
-      <section class="section">
+      <section class="section learn-section">
         <h2>🎯 Learn New</h2>
         <ul class="links">
-          <li><a class="resource" href="https://youtu.be/_lChLN570VI?si=djGWjL1Ti5dn3lpS" target="_blank">Build an App</a></li>
-          <li><a class="resource" href="https://youtu.be/dJeSe2RyoN4?si=I8pjjyKgQuveT2nI" target="_blank">UPSC Insights</a></li>
-          <li><a class="resource" href="https://youtu.be/rmqSS3IQ4d0?si=oniyAZQDm2AwaEb3" target="_blank">Mahabharat Series</a></li>
-          <li><a class="resource" href="https://youtu.be/TixjiIkB2zU?si=tak2LBLXRpLC_ogS" target="_blank">Mock Interviews</a></li>
-          <li><a class="resource" href="https://drive.google.com/drive/u/0/folders/0BwrkXzyUvQ_gbnZ3TjBxbkd0azA" target="_blank">Aptitude Drive</a></li>
-          <li><a class="resource" href="https://btechvault.vercel.app" target="_blank">BTech PDF Vault</a></li>
+          <li><a class="resource" href="https://youtu.be/_lChLN570VI?si=djGWjL1Ti5dn3lpS" target="_blank">Built an App</a></li>
+          <li><a class="resource" href="https://youtu.be/dJeSe2RyoN4?si=I8pjjyKgQuveT2nI" target="_blank">UPSC</a></li>
+          <li><a class="resource" href="https://youtu.be/rmqSS3IQ4d0?si=oniyAZQDm2AwaEb3" target="_blank">Mahabharat</a></li>
+          <li><a class="resource" href="https://youtu.be/TixjiIkB2zU?si=tak2LBLXRpLC_ogS" target="_blank">Mock Interview</a></li>
+          <li><a class="resource" href="https://drive.google.com/drive/u/0/folders/0BwrkXzyUvQ_gbnZ3TjBxbkd0azA?resourcekey=0-hz2Xp1GCdFBAJXVJWIpiAg" target="_blank">Drive for Aptitude</a></li>
+          <li><a class="resource" href="https://btechvault.vercel.app" target="_blank">B Tech imp PDF</a></li>
+          <li><a class="resource" href="https://share.google/a5astbvuXa7aGQ7Gj" target="_blank">India Bix Aptitude</a></li>
         </ul>
       </section>
     </div>
 
     <footer>
-      © 2025 Venkat’s Digital Room
+      Built with ❤️ — hosted on GitHub Pages.
     </footer>
   </div>
 </body>
