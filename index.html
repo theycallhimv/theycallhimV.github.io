@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
-    :root {
+    :root{
       --bg:#f0f0f0;
       --muted:#222;
       --link:#103d7a;
@@ -22,21 +22,24 @@
       --color-python:#98FB98;
       --color-learn:#FFB6C1;
     }
-
-    * {box-sizing:border-box;margin:0;padding:0}
-    html,body {height:100%;}
-    body {
-      font-family:"Inter",system-ui,Arial,Helvetica,sans-serif;
-      background:linear-gradient(to right,#ff7e5f,#feb47b);
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;}
+    body{
+      font-family: "Inter",system-ui,Arial,Helvetica,sans-serif;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
       color:#333;
       padding:20px;
       display:flex;
       justify-content:center;
     }
-    .wrap {width:100%;max-width:960px;margin:0 auto 60px;}
+    .wrap{
+      width:100%;
+      max-width:960px;
+      margin:0 auto 60px;
+    }
 
-    /* Hero */
-    .hero {
+    /* Profile Section */
+    .profile {
       background:#fff;
       border-radius:18px;
       padding:30px 20px;
@@ -44,67 +47,69 @@
       text-align:center;
       box-shadow:0 10px 30px var(--shadow);
     }
-    .hero h1 {
+    .profile img {
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:15px;
+      box-shadow:0 6px 15px rgba(0,0,0,0.2);
+    }
+    .profile h2 {
       font-family:"Montserrat",sans-serif;
+      font-weight:800;
+      font-size:24px;
+    }
+    .profile p {
+      margin-top:8px;
+      font-size:15px;
+      color:#555;
+      line-height:1.5;
+    }
+
+    /* Hero */
+    .hero{
+      background:#fff;
+      border-radius:18px;
+      padding:30px 20px;
+      margin-bottom:25px;
+      text-align:center;
+      box-shadow:0 10px 30px var(--shadow);
+    }
+    .hero h1{
+      font-family: "Montserrat",sans-serif;
       font-weight:900;
       font-size:clamp(28px,6vw,54px);
       line-height:1.1;
     }
-    .hero p {margin-top:8px;color:#555;font-weight:600;}
-
-    /* Profile Photo */
-    .profile-photo {
-      width:130px;
-      height:130px;
-      border-radius:50%;
-      object-fit:cover;
-      margin:0 auto 15px;
-      display:block;
-      box-shadow:0 5px 15px var(--shadow);
-      border:3px solid #fff;
-    }
-
-    /* About Me Section */
-    .about {
-      background:#fff;
-      border-radius:14px;
-      padding:20px;
-      box-shadow:0 6px 20px var(--shadow);
-      margin-bottom:25px;
-      text-align:center;
-    }
-    .about h2 {
-      font-family:"Montserrat",sans-serif;
-      font-size:22px;
-      font-weight:800;
-      margin-bottom:10px;
-    }
-    .about p {
-      color:#444;
-      line-height:1.6;
-      font-size:15px;
+    .hero p{
+      margin-top:8px;
+      color:#555;
+      font-weight:600;
     }
 
     /* Grid layout */
-    .grid {
+    .grid{
       display:grid;
-      grid-template-columns:1fr;
+      grid-template-columns: 1fr;
       gap:20px;
     }
-    @media(min-width:880px){.grid{grid-template-columns:1fr 1fr;}}
+    @media(min-width:880px){
+      .grid{grid-template-columns:1fr 1fr;}
+    }
 
-    .section {
+    .section{
       border-radius:14px;
       padding:20px;
       box-shadow:0 6px 20px var(--shadow);
-      transition:transform .2s,box-shadow .2s;
+      transition: transform .2s, box-shadow .2s;
       color:#333;
     }
-    .section:hover {
+    .section:hover{
       transform:translateY(-4px);
       box-shadow:0 12px 25px var(--shadow);
     }
-    .section h2 {
+    .section h2{
       font-family:"Montserrat",sans-serif;
       font-weight:800;
       font-size:22px;
@@ -113,7 +118,7 @@
       align-items:center;
       gap:8px;
     }
-    .section .meta {
+    .section .meta{
       display:flex;
       align-items:center;
       gap:10px;
@@ -121,7 +126,7 @@
       font-size:13px;
       color:#555;
     }
-    .badge {
+    .badge{
       border-radius:999px;
       padding:6px 12px;
       font-weight:700;
@@ -129,16 +134,22 @@
       color:#fff;
     }
 
-    ul.links {list-style:none;padding-left:0;}
-    ul.links li {margin:8px 0;font-size:15px;}
-    a.resource {
+    ul.links{
+      list-style:none;
+      padding-left:0;
+    }
+    ul.links li{
+      margin:8px 0;
+      font-size:15px;
+    }
+    a.resource{
       text-decoration:none;
       color:var(--link);
       font-weight:600;
       position:relative;
       padding-right:18px;
     }
-    a.resource::after {
+    a.resource::after{
       content:"↗";
       position:absolute;
       right:0;
@@ -147,10 +158,10 @@
       font-weight:700;
       transition:transform .2s ease;
     }
-    a.resource:hover::after {transform:translateY(-3px) scale(1.1);}
-    a.resource:hover {color:var(--accent);}
+    a.resource:hover::after{ transform:translateY(-3px) scale(1.1);}
+    a.resource:hover{ color:var(--accent); }
 
-    footer {
+    footer{
       text-align:center;
       font-size:13px;
       color:#555;
@@ -170,38 +181,30 @@
     .badge.core{background:#fdb813;}
     .badge.mustknow{background:#4caf50;}
 
+    /* Mobile tweaks */
     @media(max-width:480px){
       .section h2{font-size:20px;}
-      ul.links li{font-size:16px;margin:10px 0;}
+      ul.links li{font-size:16px; margin:10px 0;}
     }
   </style>
 </head>
-
 <body>
   <div class="wrap">
+    <!-- Profile Section -->
+    <div class="profile">
+      <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Your Photo">
+      <h2>Venkat</h2>
+      <p>Hi! I'm Venkat 👋<br>
+      Welcome to my digital room where I keep all my learning playlists and resources together — from coding to creativity. This is my small hub to grow and explore every day.</p>
+    </div>
+
     <div class="hero">
-      <!-- Profile Photo -->
-      <img src="https://ibb.co/GvhZ90Nf" alt="Venkat's Photo" class="profile-photo">
       <h1>VENKAT'S<br>DIGITAL ROOM</h1>
       <p>WITH GREAT POWERS COMES GREAT RESPONSIBILITES.</p>
     </div>
 
-    <!-- About Me -->
-    <section class="about">
-      <h2>About Me</h2>
-      <p>Hello! I'm Venkat. 
-      This digital room is my personal collection of the best YouTube resources and playlists that i like and feel curious— all in one clean place.</p>
-    </section>
-
-    <!-- Your grid sections remain the same -->
-    <div class="grid">
-      <!-- Your C, HTML, JS, Git, Python, Learn sections go here (keep as-is) -->
-      <!-- ... -->
-    </div>
-
-    <footer>
-      <p>© 2025 Venkat's Digital Room. Built with ❤️</p>
-    </footer>
+    <!-- your existing sections go here -->
+    <!-- (paste all your current study sections with YouTube links here, unchanged) -->
   </div>
 </body>
 </html>
