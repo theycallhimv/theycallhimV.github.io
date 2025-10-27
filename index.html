@@ -5,182 +5,196 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VENKAT'S DIGITAL ROOM</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2d9d6c9b3.js" crossorigin="anonymous"></script>
 
   <style>
-    :root{
-      --bg-1: #06102a; /* deep navy */
-      --bg-2: #1a143d; /* purple */
-      --bg-3: #0f3a44; /* teal */
-      --accent: #7bd389;
-      --glass: rgba(255,255,255,0.06);
-      --card-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      --soft-glow: 0 8px 30px rgba(123, 211, 137, 0.12);
-      --text-light: #f7f7fb;
-      --muted-light: #d6e7ee;
-      --link-dark: #0b3c7a;
-      --card-radius: 14px;
-      --transition: 280ms cubic-bezier(.2,.9,.3,1);
+    /* Animated ocean background */
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #020024, #090979, #00d4ff, #001d3d);
+      background-size: 400% 400%;
+      animation: wave 18s ease infinite;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;scroll-behavior:smooth}
-    body{
-      font-family:"Inter",system-ui,Arial,Helvetica,sans-serif;
-      color:var(--text-light);
-      background: linear-gradient(120deg,var(--bg-1),var(--bg-2),var(--bg-3));
-      background-size: 300% 300%;
-      animation: bgShift 14s ease infinite;
-      display:flex;
-      justify-content:center;
-      padding:24px;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    @keyframes wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    @keyframes bgShift{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
+    .wrap {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto 60px;
+      animation: fadeIn 1.2s ease;
     }
 
-    .wrap{width:100%;max-width:980px;margin:0 auto 60px;}
-
-    /* Profile area */
-    .profile {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-      margin-bottom:18px;
-      text-align:center;
-      animation:fadeIn .8s ease both;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .profile .photo {
-      width:130px;
-      height:130px;
-      border-radius:50%;
-      object-fit:cover;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6), 0 0 40px rgba(123,211,137,0.06);
-      border:4px solid rgba(255,255,255,0.06);
-      background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(0,0,0,0.08));
-      transition: transform var(--transition), box-shadow var(--transition);
-      transform-origin:center;
-      will-change:transform;
-    }
-    .profile .photo.float { animation: float 5s ease-in-out infinite; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
-    .site-title{
-      background: linear-gradient(90deg, #fff, #dfefff);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      font-family:"Montserrat",sans-serif;
-      font-weight:900;
-      font-size:clamp(28px,5.5vw,48px);
-      line-height:1.02;
-      margin-top:6px;
-    }
-    .site-sub { color:var(--muted-light); font-weight:600; margin-top:6px; font-size:14px; }
-
-    /* hero glass card */
+    /* Hero section */
     .hero {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border-radius:18px;
-      padding:22px;
-      margin-bottom:20px;
-      box-shadow:var(--card-shadow);
-      backdrop-filter: blur(6px);
+      text-align: center;
+      margin-bottom: 25px;
     }
 
-    /* Grid of sections */
-    .grid { display:grid; gap:18px; grid-template-columns:1fr; }
-    @media(min-width:880px){ .grid{ grid-template-columns:1fr 1fr; } }
+    .hero img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      margin-bottom: 15px;
+    }
 
+    .hero h1 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 6vw, 54px);
+      color: #a6e1ff;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+
+    .hero p {
+      margin-top: 8px;
+      color: #cce6ff;
+      font-weight: 600;
+    }
+
+    /* Grid layout */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 880px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Card style */
     .section {
-      border-radius:var(--card-radius);
-      padding:18px;
-      transition: transform var(--transition), box-shadow var(--transition);
-      box-shadow: 0 8px 22px rgba(0,0,0,0.45);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 20px;
+      color: #222;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1.5s ease;
     }
-    .section:hover{
-      transform:translateY(-8px);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
-    }
-    .section h2 { font-family:"Montserrat",sans-serif; font-weight:800; margin-bottom:10px; color:var(--text-light); font-size:18px; display:flex; align-items:center; gap:8px; }
 
-    ul.links { list-style:none; padding:0; margin-top:6px; }
-    ul.links li { margin:10px 0; font-size:15px; color:rgba(0,0,0,0.85); } /* dark inside pastel cards for readability */
+    .section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
+
+    .section h2 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section i {
+      font-size: 24px;
+    }
+
+    /* Colored icons */
+    .c-section i { color: #4dabf7; }       /* C & C++ */
+    .html-section i { color: #e44d26; }    /* HTML */
+    .js-section i { color: #f7df1e; }      /* JavaScript */
+    .git-section i { color: #f1502f; }     /* Git */
+    .python-section i { color: #306998; }  /* Python */
+    .learn-section i { color: #ffb703; }   /* Learn New */
+
+    ul.links {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.links li {
+      margin: 8px 0;
+    }
 
     a.resource {
-      text-decoration:none;
-      color:var(--link-dark);
-      font-weight:700;
+      text-decoration: none;
+      color: #103d7a;
+      font-weight: 600;
+      position: relative;
+      padding-right: 18px;
+      transition: color 0.2s ease;
     }
-    a.resource:hover { color:var(--accent); text-decoration:underline; }
 
-    footer { text-align:center; color:rgba(255,255,255,0.7); margin-top:26px; font-size:13px; }
+    a.resource::after {
+      content: "↗";
+      position: absolute;
+      right: 0;
+      color: #e86a2b;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
 
-    /* pastel card backgrounds (soft) */
-    .c-section { background: linear-gradient(180deg,#fff8e6,#fff5e0); color: #072036; }
-    .html-section { background: linear-gradient(180deg,#e9f5ff,#e3f0ff); color: #072036; }
-    .js-section { background: linear-gradient(180deg,#fffdf0,#fff9e6); color: #072036; }
-    .git-section { background: linear-gradient(180deg,#f2eaff,#eee6ff); color: #072036; }
-    .python-section { background: linear-gradient(180deg,#eaffee,#e6fff0); color: #072036; }
-    .learn-section { background: linear-gradient(180deg,#fff0f6,#ffeef3); color: #072036; }
+    a.resource:hover::after { transform: translateY(-3px) scale(1.1); }
+    a.resource:hover { color: #e86a2b; }
 
-    /* subtle glow around sections on hover */
-    .section:hover { box-shadow: 0 20px 50px rgba(123,211,137,0.06); }
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #cce6ff;
+      margin-top: 25px;
+    }
 
-    /* small screens adjustments */
+    /* Pastel card backgrounds */
+    .c-section { background: #d0ebff; }
+    .html-section { background: #ffe5d9; }
+    .js-section { background: #fff3b0; }
+    .git-section { background: #e2eafc; }
+    .python-section { background: #d8f3dc; }
+    .learn-section { background: #fcd5ce; }
+
     @media(max-width:480px){
-      .profile .photo { width:110px; height:110px; }
-      .site-title{ font-size:28px; }
-      ul.links li{ font-size:16px; }
+      .section h2{font-size:20px;}
+      ul.links li{font-size:16px; margin:10px 0;}
     }
-
-    /* fade-in animation */
-    @keyframes fadeIn { from{opacity:0; transform: translateY(6px)} to{opacity:1; transform:none} }
-    .fade { animation: fadeIn .6s ease both; }
-
   </style>
 </head>
 <body>
   <div class="wrap">
-
-    <!-- Profile (photo centered above title) -->
-    <div class="profile fade">
-      <!-- replace the src below with your uploaded image URL -->
-      <img class="photo float" src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat" />
+    <div class="hero">
+      <!-- Replace the link below with your actual photo URL -->
+      <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat's photo">
+      <h1>VENKAT'S<br>DIGITAL ROOM</h1>
+      <p>All your favorite tutorial channels and playlists — one place.</p>
     </div>
 
-    <!-- Hero title -->
-    <div class="hero fade" aria-hidden="false">
-      <div class="site-title">VENKAT'S<br/>DIGITAL ROOM</div>
-      <div class="site-sub">All your favorite tutorial channels and playlists — one place.</div>
-    </div>
-
-    <!-- Sections grid -->
-    <div class="grid fade">
-
-      <!-- C & C++ / Java -->
+    <div class="grid">
       <section class="section c-section">
-        <h2>💻 C & C++ / Java</h2>
+        <h2><i class="fas fa-code"></i> C & C++ / Java</h2>
         <ul class="links">
           <li><a class="resource" href="https://youtu.be/uLfCFa1Vaj0?si=IwoyETFqjSB0G-g6" target="_blank">Python Life C Lang (Telugu)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt&si=T9rWAcVA1kPeat1U" target="_blank">Physics Wallah C (Hindi)</a></li>
-          <li><a class="resource" href="https://youtu.be/xND0t1pr3KY?si=3L9GHaawQNHsu44w" target="_blank">Bro Code (English)</a></li>
-          <li><a class="resource" href="https://youtu.be/-TkoO8Z07hI?si=osO0mAvMrjEgZRTy" target="_blank">Bro Code C++ (English)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&si=RlZryGibMbuDAB2k" target="_blank">Telsuko Java (English)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt" target="_blank">Physics Wallah C (Hindi)</a></li>
+          <li><a class="resource" href="https://youtu.be/xND0t1pr3KY" target="_blank">Bro Code (English)</a></li>
+          <li><a class="resource" href="https://youtu.be/-TkoO8Z07hI" target="_blank">Bro Code C++ (English)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5" target="_blank">Telsuko Java (English)</a></li>
         </ul>
       </section>
 
-      <!-- HTML & CSS -->
       <section class="section html-section">
-        <h2>🌐 HTML & CSS</h2>
+        <h2><i class="fab fa-html5"></i> HTML & CSS</h2>
         <ul class="links">
           <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah - HTML/CSS (Hindi)</a></li>
           <li><a class="resource" href="https://www.youtube.com/@Swaroop" target="_blank">Swaroop - HTML Tutorial (Telugu)</a></li>
@@ -188,9 +202,8 @@
         </ul>
       </section>
 
-      <!-- JavaScript -->
       <section class="section js-section">
-        <h2>📜 JavaScript</h2>
+        <h2><i class="fab fa-js"></i> JavaScript</h2>
         <ul class="links">
           <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Apna College - JavaScript (Hindi)</a></li>
           <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah - JavaScript (Hindi)</a></li>
@@ -198,9 +211,8 @@
         </ul>
       </section>
 
-      <!-- Git -->
       <section class="section git-section">
-        <h2>🗂️ Git</h2>
+        <h2><i class="fab fa-github"></i> Git & GitHub</h2>
         <ul class="links">
           <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Git & GitHub - Apna College (Hindi)</a></li>
           <li><a class="resource" href="https://www.youtube.com/@AlphaKnowledge" target="_blank">Alpha Knowledge - Git (Telugu)</a></li>
@@ -208,35 +220,33 @@
         </ul>
       </section>
 
-      <!-- Python -->
       <section class="section python-section">
-        <h2>🐍 Python</h2>
+        <h2><i class="fab fa-python"></i> Python</h2>
         <ul class="links">
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0&si=HkUSt1cCjaoWd2xs" target="_blank">Alpha College Python (Hindi)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLBlnK6fEyqRiueC_HzwFallNO76hfXBB7&si=8rwne_DkzEMThWpG" target="_blank">Neso Academy Python (English)</a></li>
-          <li><a class="resource" href="https://youtu.be/fHKPQEVCX-s?si=tAg9HPPL-Hptkp9v" target="_blank">Swaroop Python (Telugu)</a></li>
-          <li><a class="resource" href="https://youtu.be/h1WdbfoHeac?si=3RmXs42jUqSTHzOl" target="_blank">Python Life Python (Telugu)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&si=GjnMLTYw6p_LOqnd" target="_blank">Telsuko Python (English)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0" target="_blank">Alpha College Python (Hindi)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLBlnK6fEyqRiueC_HzwFallNO76hfXBB7" target="_blank">Neso Academy Python (English)</a></li>
+          <li><a class="resource" href="https://youtu.be/fHKPQEVCX-s" target="_blank">Swaroop Python (Telugu)</a></li>
+          <li><a class="resource" href="https://youtu.be/h1WdbfoHeac" target="_blank">Python Life Python (Telugu)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3" target="_blank">Telsuko Python (English)</a></li>
         </ul>
       </section>
 
-      <!-- Learn New -->
       <section class="section learn-section">
-        <h2>🎯 Learn New</h2>
+        <h2><i class="fas fa-lightbulb"></i> Learn New</h2>
         <ul class="links">
-          <li><a class="resource" href="https://youtu.be/_lChLN570VI?si=djGWjL1Ti5dn3lpS" target="_blank">Built an App</a></li>
-          <li><a class="resource" href="https://youtu.be/dJeSe2RyoN4?si=I8pjjyKgQuveT2nI" target="_blank">UPSC</a></li>
-          <li><a class="resource" href="https://youtu.be/rmqSS3IQ4d0?si=oniyAZQDm2AwaEb3" target="_blank">Mahabharat</a></li>
-          <li><a class="resource" href="https://youtu.be/TixjiIkB2zU?si=tak2LBLXRpLC_ogS" target="_blank">Mock Interview</a></li>
-          <li><a class="resource" href="https://drive.google.com/drive/u/0/folders/0BwrkXzyUvQ_gbnZ3TjBxbkd0azA?resourcekey=0-hz2Xp1GCdFBAJXVJWIpiAg" target="_blank">Drive for Aptitude</a></li>
+          <li><a class="resource" href="https://youtu.be/_lChLN570VI" target="_blank">Built an app</a></li>
+          <li><a class="resource" href="https://youtu.be/dJeSe2RyoN4" target="_blank">UPSC</a></li>
+          <li><a class="resource" href="https://youtu.be/rmqSS3IQ4d0" target="_blank">Mahabharat</a></li>
+          <li><a class="resource" href="https://youtu.be/TixjiIkB2zU" target="_blank">Mock interview</a></li>
+          <li><a class="resource" href="https://drive.google.com/drive/folders/0BwrkXzyUvQ_gbnZ3TjBxbkd0azA" target="_blank">Drive for Aptitude</a></li>
           <li><a class="resource" href="https://btechvault.vercel.app" target="_blank">B Tech imp PDF</a></li>
-          <li><a class="resource" href="https://share.google/a5astbvuXa7aGQ7Gj" target="_blank">India Bix Aptitude</a></li>
         </ul>
       </section>
-
     </div>
 
-    <footer class="fade">Built with ❤️ — hosted on GitHub Pages.</footer>
+    <footer>
+      © 2025 Venkat's Digital Room | Built with 💙 for learning
+    </footer>
   </div>
 </body>
 </html>
