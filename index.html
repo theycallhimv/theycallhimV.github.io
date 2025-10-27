@@ -5,170 +5,167 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VENKAT'S DIGITAL ROOM</title>
 
-  <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --accent:#e86a2b;
-      --shadow:rgba(0,0,0,0.25);
-      --c:#ffefcf;
-      --html:#d2e7ff;
-      --js:#fff4cc;
-      --git:#e4d7ff;
-      --python:#d3f8d3;
-      --learn:#ffd9e8;
+    :root{
+      --bg-1: #06102a; /* deep navy */
+      --bg-2: #1a143d; /* purple */
+      --bg-3: #0f3a44; /* teal */
+      --accent: #7bd389;
+      --glass: rgba(255,255,255,0.06);
+      --card-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      --soft-glow: 0 8px 30px rgba(123, 211, 137, 0.12);
+      --text-light: #f7f7fb;
+      --muted-light: #d6e7ee;
+      --link-dark: #0b3c7a;
+      --card-radius: 14px;
+      --transition: 280ms cubic-bezier(.2,.9,.3,1);
     }
 
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html, body { height:100%; scroll-behavior:smooth; }
-
-    body {
-      font-family:"Inter", system-ui, Arial, sans-serif;
-      color:#222;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;scroll-behavior:smooth}
+    body{
+      font-family:"Inter",system-ui,Arial,Helvetica,sans-serif;
+      color:var(--text-light);
+      background: linear-gradient(120deg,var(--bg-1),var(--bg-2),var(--bg-3));
+      background-size: 300% 300%;
+      animation: bgShift 14s ease infinite;
       display:flex;
       justify-content:center;
-      background: linear-gradient(-45deg, #fde3cf, #f6e2ff, #d3f8d3, #ffd9e8);
-      background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
-      padding:20px;
+      padding:24px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    @keyframes gradientMove {
-      0% { background-position:0% 50%; }
-      50% { background-position:100% 50%; }
-      100% { background-position:0% 50%; }
+    @keyframes bgShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
     }
 
-    .wrap {
-      width:100%;
-      max-width:960px;
-      margin:0 auto 60px;
-    }
+    .wrap{width:100%;max-width:980px;margin:0 auto 60px;}
 
-    /* Profile */
+    /* Profile area */
     .profile {
-      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
       margin-bottom:18px;
+      text-align:center;
+      animation:fadeIn .8s ease both;
     }
-    .profile img {
-      width:120px;
-      height:120px;
+    .profile .photo {
+      width:130px;
+      height:130px;
       border-radius:50%;
       object-fit:cover;
-      box-shadow:0 6px 16px var(--shadow);
-      border:3px solid white;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6), 0 0 40px rgba(123,211,137,0.06);
+      border:4px solid rgba(255,255,255,0.06);
+      background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(0,0,0,0.08));
+      transition: transform var(--transition), box-shadow var(--transition);
+      transform-origin:center;
+      will-change:transform;
     }
+    .profile .photo.float { animation: float 5s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
-    /* Hero */
-    .hero {
-      background:#fff;
-      border-radius:18px;
-      padding:30px 20px;
-      margin-bottom:25px;
-      text-align:center;
-      box-shadow:0 10px 30px var(--shadow);
-    }
-    .hero h1 {
-      font-family:"Montserrat", sans-serif;
+    .site-title{
+      background: linear-gradient(90deg, #fff, #dfefff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      font-family:"Montserrat",sans-serif;
       font-weight:900;
-      font-size:clamp(28px,6vw,54px);
-      line-height:1.1;
-      color:#222;
+      font-size:clamp(28px,5.5vw,48px);
+      line-height:1.02;
+      margin-top:6px;
     }
-    .hero p {
-      margin-top:8px;
-      color:#555;
-      font-weight:600;
+    .site-sub { color:var(--muted-light); font-weight:600; margin-top:6px; font-size:14px; }
+
+    /* hero glass card */
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:22px;
+      margin-bottom:20px;
+      box-shadow:var(--card-shadow);
+      backdrop-filter: blur(6px);
     }
 
-    /* Grid layout */
-    .grid {
-      display:grid;
-      grid-template-columns:1fr;
-      gap:20px;
-    }
-    @media(min-width:880px){
-      .grid{ grid-template-columns:1fr 1fr; }
-    }
+    /* Grid of sections */
+    .grid { display:grid; gap:18px; grid-template-columns:1fr; }
+    @media(min-width:880px){ .grid{ grid-template-columns:1fr 1fr; } }
 
     .section {
-      border-radius:14px;
-      padding:20px;
-      box-shadow:0 6px 20px var(--shadow);
-      transition: transform .25s, box-shadow .25s;
+      border-radius:var(--card-radius);
+      padding:18px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.03);
     }
-    .section:hover {
-      transform:translateY(-4px);
-      box-shadow:0 10px 28px rgba(0,0,0,0.3);
+    .section:hover{
+      transform:translateY(-8px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
     }
+    .section h2 { font-family:"Montserrat",sans-serif; font-weight:800; margin-bottom:10px; color:var(--text-light); font-size:18px; display:flex; align-items:center; gap:8px; }
 
-    .section h2 {
-      font-family:"Montserrat", sans-serif;
-      font-weight:800;
-      font-size:22px;
-      margin-bottom:12px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
+    ul.links { list-style:none; padding:0; margin-top:6px; }
+    ul.links li { margin:10px 0; font-size:15px; color:rgba(0,0,0,0.85); } /* dark inside pastel cards for readability */
 
-    ul.links {
-      list-style:none;
-      padding-left:0;
-    }
-    ul.links li {
-      margin:8px 0;
-      font-size:15px;
-    }
     a.resource {
       text-decoration:none;
-      color:#0b3c7a;
-      font-weight:600;
-      position:relative;
-      padding-right:18px;
-    }
-    a.resource::after {
-      content:"↗";
-      position:absolute;
-      right:0;
-      transform:translateY(-1px);
-      color:var(--accent);
+      color:var(--link-dark);
       font-weight:700;
-      transition:transform .2s ease;
     }
-    a.resource:hover::after { transform:translateY(-3px) scale(1.1); }
-    a.resource:hover { color:var(--accent); }
+    a.resource:hover { color:var(--accent); text-decoration:underline; }
 
-    footer {
-      text-align:center;
-      font-size:13px;
-      color:#444;
-      margin-top:25px;
+    footer { text-align:center; color:rgba(255,255,255,0.7); margin-top:26px; font-size:13px; }
+
+    /* pastel card backgrounds (soft) */
+    .c-section { background: linear-gradient(180deg,#fff8e6,#fff5e0); color: #072036; }
+    .html-section { background: linear-gradient(180deg,#e9f5ff,#e3f0ff); color: #072036; }
+    .js-section { background: linear-gradient(180deg,#fffdf0,#fff9e6); color: #072036; }
+    .git-section { background: linear-gradient(180deg,#f2eaff,#eee6ff); color: #072036; }
+    .python-section { background: linear-gradient(180deg,#eaffee,#e6fff0); color: #072036; }
+    .learn-section { background: linear-gradient(180deg,#fff0f6,#ffeef3); color: #072036; }
+
+    /* subtle glow around sections on hover */
+    .section:hover { box-shadow: 0 20px 50px rgba(123,211,137,0.06); }
+
+    /* small screens adjustments */
+    @media(max-width:480px){
+      .profile .photo { width:110px; height:110px; }
+      .site-title{ font-size:28px; }
+      ul.links li{ font-size:16px; }
     }
 
-    /* Section colors */
-    .c-section { background:var(--c); }
-    .html-section { background:var(--html); }
-    .js-section { background:var(--js); }
-    .git-section { background:var(--git); }
-    .python-section { background:var(--python); }
-    .learn-section { background:var(--learn); }
+    /* fade-in animation */
+    @keyframes fadeIn { from{opacity:0; transform: translateY(6px)} to{opacity:1; transform:none} }
+    .fade { animation: fadeIn .6s ease both; }
+
   </style>
 </head>
-
 <body>
   <div class="wrap">
-    <div class="profile">
-      <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat" class="profile-pic" />
+
+    <!-- Profile (photo centered above title) -->
+    <div class="profile fade">
+      <!-- replace the src below with your uploaded image URL -->
+      <img class="photo float" src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat" />
     </div>
 
-    <div class="hero">
-      <h1>VENKAT'S<br>DIGITAL ROOM</h1>
-      <p>All your favorite tutorial channels and playlists — one place.</p>
+    <!-- Hero title -->
+    <div class="hero fade" aria-hidden="false">
+      <div class="site-title">VENKAT'S<br/>DIGITAL ROOM</div>
+      <div class="site-sub">All your favorite tutorial channels and playlists — one place.</div>
     </div>
 
-    <div class="grid">
+    <!-- Sections grid -->
+    <div class="grid fade">
+
       <!-- C & C++ / Java -->
       <section class="section c-section">
         <h2>💻 C & C++ / Java</h2>
@@ -236,11 +233,10 @@
           <li><a class="resource" href="https://share.google/a5astbvuXa7aGQ7Gj" target="_blank">India Bix Aptitude</a></li>
         </ul>
       </section>
+
     </div>
 
-    <footer>
-      Built with ❤️ — hosted on GitHub Pages.
-    </footer>
+    <footer class="fade">Built with ❤️ — hosted on GitHub Pages.</footer>
   </div>
 </body>
 </html>
