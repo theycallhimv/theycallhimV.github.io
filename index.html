@@ -2,234 +2,233 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VENKAT'S DIGITAL ROOM</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
     :root {
-      --shadow: rgba(0, 0, 0, 0.3);
-      --accent: #e86a2b;
+      --shadow: rgba(0, 0, 0, 0.25);
+      --bg-dark: #03091c;
+      --accent: #00bcd4;
+      --color-c: rgba(255, 218, 185, 0.25);
+      --color-html: rgba(176, 224, 230, 0.25);
+      --color-js: rgba(255, 228, 181, 0.25);
+      --color-git: rgba(230, 230, 250, 0.25);
+      --color-python: rgba(152, 251, 152, 0.25);
+      --color-learn: rgba(255, 182, 193, 0.25);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow-x: hidden; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: "Inter", sans-serif;
+      font-family: "Inter", system-ui, sans-serif;
       color: #fff;
-      display: flex;
-      justify-content: center;
-      background: linear-gradient(180deg, #020024 0%, #090979 35%, #000428 100%);
-      animation: moveBg 10s infinite alternate ease-in-out;
-      background-size: 200% 200%;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at bottom, #0a2342 0%, #000 100%);
+      overflow-x: hidden;
     }
 
-    @keyframes moveBg {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    /* Water effect overlay */
-    body::after {
+    /* Animated live sea-tide background */
+    body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('https://i.ibb.co/PzHTXbM/wave-texture.gif') repeat;
-      background-size: cover;
-      opacity: 0.15;
-      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 120%, #003366 0%, transparent 70%),
+                  radial-gradient(circle at 50% -20%, #001a33 0%, transparent 70%);
+      animation: moveWaves 12s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes moveWaves {
+      0% { transform: translateX(0) translateY(0) scale(1); }
+      100% { transform: translateX(-10%) translateY(2%) scale(1.05); }
     }
 
     .wrap {
-      width: 100%;
       max-width: 960px;
-      padding: 20px;
-      position: relative;
-      z-index: 2;
+      margin: 0 auto;
+      padding: 30px 15px 80px;
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      margin-bottom: 40px;
+      padding: 30px 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px var(--shadow);
+      margin-bottom: 30px;
     }
 
     .hero img {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-      margin-bottom: 10px;
+      box-shadow: 0 0 25px rgba(0, 200, 255, 0.7);
+      animation: floaty 6s ease-in-out infinite;
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .hero h1 {
       font-family: "Montserrat", sans-serif;
-      font-size: clamp(28px, 6vw, 54px);
       font-weight: 900;
-      letter-spacing: 1px;
+      font-size: clamp(28px, 6vw, 52px);
+      color: #fff;
+      margin-top: 12px;
+      text-shadow: 0 0 8px #00bcd4;
     }
 
     .hero p {
-      color: #bbb;
+      color: #ddd;
       margin-top: 8px;
-      font-weight: 500;
     }
 
-    /* Card Grid */
+    /* Grid */
     .grid {
       display: grid;
-      grid-template-columns: 1fr;
       gap: 20px;
     }
-    @media (min-width: 800px) {
+    @media (min-width: 880px) {
       .grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* Section Cards */
     .section {
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 20px;
-      backdrop-filter: blur(12px);
-      color: #fff;
-      box-shadow: 0 6px 25px var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 18px var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(8px);
     }
 
     .section:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 25px var(--shadow);
     }
 
     .section h2 {
       font-family: "Montserrat", sans-serif;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 22px;
-      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-bottom: 10px;
+      color: #fff;
     }
 
     .section ul {
       list-style: none;
-      margin-top: 10px;
-      padding-left: 10px;
     }
 
-    .section li {
+    .section ul li {
       margin: 8px 0;
-      font-size: 15px;
     }
 
     a.resource {
       text-decoration: none;
-      color: #fff;
-      position: relative;
+      color: #00bcd4;
       font-weight: 600;
+      position: relative;
+      transition: color 0.2s;
     }
 
-    a.resource::after {
-      content: "↗";
-      position: absolute;
-      right: -15px;
-      color: var(--accent);
+    a.resource:hover {
+      color: #ffcc00;
     }
 
-    a.resource:hover { color: var(--accent); }
-
-    /* Transparent pastel colors */
-    .c-section    { background: rgba(255, 182, 193, 0.25); }
-    .html-section { background: rgba(135, 206, 235, 0.25); }
-    .js-section   { background: rgba(255, 255, 153, 0.25); }
-    .git-section  { background: rgba(216, 191, 216, 0.25); }
-    .python-section { background: rgba(152, 251, 152, 0.25); }
-    .learn-section { background: rgba(255, 204, 153, 0.25); }
+    /* Section color backgrounds */
+    .c-section { background: var(--color-c); }
+    .html-section { background: var(--color-html); }
+    .js-section { background: var(--color-js); }
+    .git-section { background: var(--color-git); }
+    .python-section { background: var(--color-python); }
+    .learn-section { background: var(--color-learn); }
 
     footer {
       text-align: center;
-      color: #aaa;
-      font-size: 13px;
-      margin-top: 30px;
+      margin-top: 40px;
+      color: #ccc;
+      font-size: 14px;
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="hero">
-      <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat's photo" />
-      <h1>VENKAT'S DIGITAL ROOM</h1>
+      <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat's Photo">
+      <h1>VENKAT'S<br>DIGITAL ROOM</h1>
       <p>All your favorite tutorial channels and playlists — one place.</p>
     </div>
 
     <div class="grid">
-      <section class="section c-section">
-        <h2><i class="fas fa-code"></i> C & C++ / Java</h2>
+      <div class="section c-section">
+        <h2><i class="fas fa-code"></i> C Programming</h2>
         <ul>
-          <li><a class="resource" href="https://youtu.be/uLfCFa1Vaj0?si=IwoyETFqjSB0G-g6" target="_blank">Python Life C Lang (Telugu)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt" target="_blank">Physics Wallah C (Hindi)</a></li>
-          <li><a class="resource" href="https://youtu.be/xND0t1pr3KY" target="_blank">Bro Code (English)</a></li>
-          <li><a class="resource" href="https://youtu.be/-TkoO8Z07hI" target="_blank">Bro Code C++ (English)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5" target="_blank">Telsuko Java (English)</a></li>
+          <li><a href="https://youtube.com/@MySirG" class="resource">MySirG</a></li>
+          <li><a href="https://youtube.com/@CodeWithHarry" class="resource">CodeWithHarry</a></li>
         </ul>
-      </section>
+      </div>
 
-      <section class="section html-section">
-        <h2><i class="fab fa-html5"></i> HTML & CSS</h2>
+      <div class="section html-section">
+        <h2><i class="fab fa-html5"></i> HTML Tutorials</h2>
         <ul>
-          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@Swaroop" target="_blank">Swaroop (Telugu)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank">PythonLife (Telugu)</a></li>
+          <li><a href="https://youtube.com/@GreatStackDev" class="resource">GreatStack</a></li>
+          <li><a href="https://youtube.com/@BroCodez" class="resource">BroCodez</a></li>
         </ul>
-      </section>
+      </div>
 
-      <section class="section js-section">
+      <div class="section js-section">
         <h2><i class="fab fa-js"></i> JavaScript</h2>
         <ul>
-          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Apna College (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank">PythonLife (Telugu)</a></li>
+          <li><a href="https://youtube.com/@freecodecamp" class="resource">FreeCodeCamp</a></li>
+          <li><a href="https://youtube.com/@TraversyMedia" class="resource">Traversy Media</a></li>
         </ul>
-      </section>
+      </div>
 
-      <section class="section git-section">
+      <div class="section git-section">
         <h2><i class="fab fa-github"></i> Git & GitHub</h2>
         <ul>
-          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Apna College (Hindi)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@AlphaKnowledge" target="_blank">Alpha Knowledge (Telugu)</a></li>
-          <li><a class="resource" href="https://www.youtube.com/@WscubeTech" target="_blank">WsCube Git (English)</a></li>
+          <li><a href="https://youtube.com/@TheNetNinja" class="resource">The Net Ninja</a></li>
+          <li><a href="https://youtube.com/@KunalKushwaha" class="resource">Kunal Kushwaha</a></li>
         </ul>
-      </section>
+      </div>
 
-      <section class="section python-section">
+      <div class="section python-section">
         <h2><i class="fab fa-python"></i> Python</h2>
         <ul>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0" target="_blank">Alpha College (Hindi)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLBlnK6fEyqRiueC_HzwFallNO76hfXBB7" target="_blank">Neso Academy (English)</a></li>
-          <li><a class="resource" href="https://youtu.be/fHKPQEVCX-s" target="_blank">Swaroop (Telugu)</a></li>
-          <li><a class="resource" href="https://youtu.be/h1WdbfoHeac" target="_blank">Python Life (Telugu)</a></li>
-          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3" target="_blank">Telsuko (English)</a></li>
+          <li><a href="https://youtube.com/@TechWithTim" class="resource">Tech With Tim</a></li>
+          <li><a href="https://youtube.com/@ProgrammingWithMosh" class="resource">Programming with Mosh</a></li>
         </ul>
-      </section>
+      </div>
 
-      <section class="section learn-section">
+      <div class="section learn-section">
         <h2><i class="fas fa-lightbulb"></i> Learn Something New</h2>
         <ul>
-          <li><a class="resource" href="https://youtu.be/_lChLN570VI" target="_blank">Built an App</a></li>
-          <li><a class="resource" href="https://youtu.be/dJeSe2RyoN4" target="_blank">UPSC</a></li>
-          <li><a class="resource" href="https://youtu.be/rmqSS3IQ4d0" target="_blank">Mahabharat</a></li>
-          <li><a class="resource" href="https://youtu.be/TixjiIkB2zU" target="_blank">Mock Interview</a></li>
-          <li><a class="resource" href="https://drive.google.com/drive/u/0/folders/0BwrkXzyUvQ_gbnZ3TjBxbkd0azA" target="_blank">Drive for Aptitude</a></li>
-          <li><a class="resource" href="https://btechvault.vercel.app" target="_blank">B Tech imp PDF</a></li>
+          <li><a href="https://youtube.com/@TED" class="resource">TED</a></li>
+          <li><a href="https://youtube.com/@Veritasium" class="resource">Veritasium</a></li>
         </ul>
-      </section>
+      </div>
     </div>
 
     <footer>
