@@ -7,13 +7,9 @@
 
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <!-- Font Awesome for icons (used earlier) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* ------------------------------
-       KEEP PAGE 1 STYLES (UNCHANGED)
-       ------------------------------ */
     :root{
       --bg:#f0f0f0;
       --muted:#222;
@@ -34,10 +30,10 @@
       background: linear-gradient(to right, #ff7e5f, #feb47b);
       color:#333;
       padding:20px;
-      overflow-x:hidden; /* allow slide without horizontal scrollbar */
+      overflow-x:hidden; /* prevent horizontal scroll during slide */
     }
 
-    /* ---------- pages wrapper for sliding ---------- */
+    /* root container */
     .root {
       max-width:960px;
       margin:0 auto;
@@ -45,40 +41,37 @@
       overflow:visible;
     }
 
+    /* pages row */
     .pages {
       display:flex;
-      width:200%;                /* two pages side-by-side */
-      transition: transform 1.1s cubic-bezier(.2,.8,.2,.98); /* slow cinematic */
+      width:200%; /* two pages side-by-side */
+      transition: transform 1.1s cubic-bezier(.2,.8,.2,.98);
       will-change: transform;
+      transform: translateX(0);
     }
-    /* slide left when night active */
-    .night-mode .pages { transform: translateX(-50%); }
+    /* when night-mode class present, slide left by full page width */
+    .night-mode .pages { transform: translateX(-100%); }
 
+    /* each page full width */
     .page {
-      width:50%;
+      flex: 0 0 100%;
       box-sizing:border-box;
       padding:0 10px;
-    }
-    @media (max-width:880px) {
-      .page { width:100%; }
-      .pages { width:200%; }
-      .night-mode .pages { transform: translateX(-100%); }
+      min-height:100vh;
     }
 
-    /* ---------------- PAGE 1 (exact as your original) ---------------- */
+    /* ---------- PAGE 1 (KEPT AS-IS) ---------- */
     .day-wrap{
       width:100%;
       max-width:960px;
       margin:0 auto 60px;
     }
 
-    /* Floating animation */
     @keyframes floaty {
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
 
-    /* Hero */
     .hero{
       background:#fff;
       border-radius:18px;
@@ -88,194 +81,61 @@
       box-shadow:0 10px 30px var(--shadow);
       animation: floaty 6s ease-in-out infinite;
     }
-    .hero h1{
-      font-family: "Montserrat",sans-serif;
-      font-weight:900;
-      font-size:clamp(28px,6vw,54px);
-      line-height:1.1;
-    }
-    .hero p{
-      margin-top:8px;
-      color:#555;
-      font-weight:600;
-    }
+    .hero h1{ font-family: "Montserrat",sans-serif; font-weight:900; font-size:clamp(28px,6vw,54px); line-height:1.1; }
+    .hero p{ margin-top:8px; color:#555; font-weight:600; }
 
-    /* Photo Section (Day) */
-    .photo-section {
-      text-align: center;
-      margin: 20px 0 40px;
-      animation: floaty 7s ease-in-out infinite;
-    }
-    .photo-section img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(255,255,255,0.8);
-      box-shadow: 0 0 25px rgba(255,255,255,0.4);
-    }
+    .photo-section { text-align:center; margin:20px 0 40px; animation: floaty 7s ease-in-out infinite; }
+    .photo-section img { width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid rgba(255,255,255,0.8); box-shadow:0 0 25px rgba(255,255,255,0.4); }
 
-    /* Grid layout */
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:20px;
-    }
-    @media(min-width:880px){
-      .grid{grid-template-columns:1fr 1fr;}
-    }
+    .grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+    @media(min-width:880px){ .grid{ grid-template-columns:1fr 1fr; } }
 
-    .section{
-      border-radius:14px;
-      padding:20px;
-      box-shadow:0 6px 20px var(--shadow);
-      transition: transform .2s, box-shadow .2s;
-      color:#333;
-      animation: floaty 6s ease-in-out infinite;
-      animation-delay: calc(var(--i, 0) * 0.5s);
-    }
-    .section:hover{
-      transform:translateY(-4px);
-      box-shadow:0 12px 25px var(--shadow);
-    }
-    .section h2{
-      font-family:"Montserrat",sans-serif;
-      font-weight:800;
-      font-size:22px;
-      margin-bottom:12px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .section .meta{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:12px;
-      font-size:13px;
-      color:#555;
-    }
-    .badge{
-      border-radius:999px;
-      padding:6px 12px;
-      font-weight:700;
-      font-size:12px;
-      color:#fff;
-    }
+    .section{ border-radius:14px; padding:20px; box-shadow:0 6px 20px var(--shadow); transition: transform .2s, box-shadow .2s; color:#333; animation: floaty 6s ease-in-out infinite; animation-delay: calc(var(--i, 0) * 0.5s); }
+    .section:hover{ transform:translateY(-4px); box-shadow:0 12px 25px var(--shadow); }
+    .section h2{ font-family:"Montserrat",sans-serif; font-weight:800; font-size:22px; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .meta{ display:flex; align-items:center; gap:10px; margin-bottom:12px; font-size:13px; color:#555; }
+    .badge{ border-radius:999px; padding:6px 12px; font-weight:700; font-size:12px; color:#fff; }
 
-    ul.links{
-      list-style:none;
-      padding-left:0;
-    }
-    ul.links li{
-      margin:8px 0;
-      font-size:15px;
-    }
-    a.resource{
-      text-decoration:none;
-      color:var(--link);
-      font-weight:600;
-      position:relative;
-      padding-right:18px;
-    }
-    a.resource::after{
-      content:"↗";
-      position:absolute;
-      right:0;
-      transform:translateY(-1px);
-      color:var(--accent);
-      font-weight:700;
-      transition:transform .2s ease;
-    }
-    a.resource:hover::after{ transform:translateY(-3px) scale(1.1);}
+    ul.links{ list-style:none; padding-left:0; }
+    ul.links li{ margin:8px 0; font-size:15px; }
+    a.resource{ text-decoration:none; color:var(--link); font-weight:600; position:relative; padding-right:18px; }
+    a.resource::after{ content:"↗"; position:absolute; right:0; transform:translateY(-1px); color:var(--accent); font-weight:700; transition:transform .2s ease; }
+    a.resource:hover::after{ transform:translateY(-3px) scale(1.1); }
     a.resource:hover{ color:var(--accent); }
 
-    footer{
-      text-align:center;
-      font-size:13px;
-      color:#555;
-      margin-top:25px;
-    }
+    footer{ text-align:center; font-size:13px; color:#555; margin-top:25px; }
 
-    /* Section colors */
-    .c-section{background:var(--color-c);}
-    .html-section{background:var(--color-html);}
-    .js-section{background:var(--color-js);}
-    .git-section{background:var(--color-git);}
-    .python-section{background:var(--color-python);}
-    .learn-section{background:var(--color-learn);}
+    .c-section{background:var(--color-c);} .html-section{background:var(--color-html);} .js-section{background:var(--color-js);} .git-section{background:var(--color-git);} .python-section{background:var(--color-python);} .learn-section{background:var(--color-learn);}
+    .badge.beginner{background:#ff7e5f;} .badge.core{background:#fdb813;} .badge.mustknow{background:#4caf50;}
 
-    /* Badge colors */
-    .badge.beginner{background:#ff7e5f;}
-    .badge.core{background:#fdb813;}
-    .badge.mustknow{background:#4caf50;}
+    @media(max-width:480px){ .section h2{font-size:20px;} ul.links li{font-size:16px; margin:10px 0;} }
 
-    /* Mobile tweaks */
-    @media(max-width:480px){
-      .section h2{font-size:20px;}
-      ul.links li{font-size:16px; margin:10px 0;}
-    }
-
-    /* ---------- Shared button (top-right) ---------- */
-    .mode-btn {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      z-index: 1200;
-      background: rgba(0,0,0,0.55);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 10px 14px;
-      border-radius: 12px;
-      cursor: pointer;
+    /* Enter Night button on Page1 (inside page) */
+    .enter-night-btn {
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      background: #0b3145;
+      color:#fff;
+      border:none;
+      cursor:pointer;
       font-weight:700;
-      backdrop-filter: blur(6px);
-    }
-    .mode-btn:active { transform: translateY(2px); }
-
-    /* ---------------- PAGE 2: NIGHT MODE (realistic fast waves) ---------------- */
-    .night-wrap {
-      width:100%;
-      max-width:960px;
-      margin:0 auto 60px;
-      color: #e6f7ff;
-      position:relative;
-      padding: 24px;
-      box-sizing:border-box;
-      min-height: 100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
+      box-shadow: 0 8px 20px rgba(11,49,69,0.35);
+      margin: 24px auto 60px;
     }
 
-    /* realistic layered horizontal waves (fast & wavy) */
-    .night-bg {
-      position:absolute;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      overflow:hidden;
-      background: linear-gradient(180deg,#000814 0%, #001225 40%, #001b33 100%);
-    }
+    /* ---------- PAGE 2: NIGHT MODE (REALISTIC HORIZONTAL FAST WAVES) ---------- */
+    .night-wrap { width:100%; max-width:960px; margin:0 auto 60px; color:#e6f7ff; position:relative; padding:24px; box-sizing:border-box; min-height:100vh; display:flex; flex-direction:column; }
 
-    .wave-svg {
-      position:absolute;
-      left:-30%;
-      width:160%;
-      height:36vh;
-      bottom:-6vh;
-      opacity:0.95;
-      filter: blur(6px);
-      will-change: transform;
-    }
-    .wave-a path{ fill: rgba(2,24,46,0.95); }
-    .wave-b path{ fill: rgba(7,50,82,0.85); }
-    .wave-c path{ fill: rgba(5,70,100,0.7); }
+    /* background container */
+    .night-bg { position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; background: linear-gradient(180deg,#000814 0%, #001225 40%, #001b33 100%); }
 
-    /* fast horizontal movement + vertical bob for realism */
-    .wave-a { animation: waveAX 7s linear infinite, waveAY 5s ease-in-out infinite; transform-origin:center; }
-    .wave-b { animation: waveBX 9s linear infinite reverse, waveBY 6s ease-in-out infinite; transform-origin:center; opacity:0.9; }
-    .wave-c { animation: waveCX 5.5s linear infinite, waveCY 4s ease-in-out infinite; transform-origin:center; opacity:0.8; }
+    .wave-svg { position:absolute; left:-30%; width:160%; height:36vh; bottom:-6vh; opacity:0.95; filter: blur(6px); will-change:transform; }
+    .wave-a path{ fill: rgba(2,24,46,0.95); } .wave-b path{ fill: rgba(7,50,82,0.85); } .wave-c path{ fill: rgba(5,70,100,0.7); }
+
+    .wave-a { animation: waveAX 7s linear infinite, waveAY 5s ease-in-out infinite; }
+    .wave-b { animation: waveBX 9s linear infinite reverse, waveBY 6s ease-in-out infinite; opacity:0.9; }
+    .wave-c { animation: waveCX 5.5s linear infinite, waveCY 4s ease-in-out infinite; opacity:0.8; }
 
     @keyframes waveAX { 0%{ transform: translateX(0);} 50%{ transform: translateX(-18%);} 100%{ transform: translateX(0);} }
     @keyframes waveBX { 0%{ transform: translateX(0);} 50%{ transform: translateX(-26%);} 100%{ transform: translateX(0);} }
@@ -285,79 +145,40 @@
     @keyframes waveBY { 0%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} 100%{ transform: translateY(0);} }
     @keyframes waveCY { 0%{ transform: translateY(0);} 50%{ transform: translateY(-14px);} 100%{ transform: translateY(0);} }
 
-    /* moonlight reflection (soft radial overlay) */
-    .moon-reflection {
-      position:absolute;
-      left:50%;
-      top:6%;
-      transform:translateX(-50%);
-      width:80vmax;
-      height:80vmax;
-      z-index:1;
-      pointer-events:none;
-      background: radial-gradient(closest-side, rgba(207,238,251,0.09), rgba(0,0,0,0) 45%);
-      filter: blur(28px);
-      mix-blend-mode: screen;
-      animation: moonPulse 7s ease-in-out infinite;
-      opacity:0.95;
-    }
-    @keyframes moonPulse {
-      0%{ transform: translateX(-50%) translateY(0) scale(1); opacity:0.85}
-      50%{ transform: translateX(-50%) translateY(-6px) scale(1.02); opacity:1}
-      100%{ transform: translateX(-50%) translateY(0) scale(1); opacity:0.85}
-    }
+    .moon-reflection { position:absolute; left:50%; top:6%; transform:translateX(-50%); width:80vmax; height:80vmax; z-index:1; pointer-events:none; background: radial-gradient(closest-side, rgba(207,238,251,0.09), rgba(0,0,0,0) 45%); filter: blur(28px); mix-blend-mode: screen; animation: moonPulse 7s ease-in-out infinite; opacity:0.95; }
+    @keyframes moonPulse { 0%{ transform: translateX(-50%) translateY(0) scale(1); opacity:0.85} 50%{ transform: translateX(-50%) translateY(-6px) scale(1.02); opacity:1} 100%{ transform: translateX(-50%) translateY(0) scale(1); opacity:0.85} }
 
-    /* Night page content on top of waves */
-    .night-content {
-      position:relative;
-      z-index:2;
-      padding-top: 22px;
-    }
+    .night-content { position:relative; z-index:2; padding-top:22px; display:flex; flex-direction:column; align-items:center; }
 
-    .night-hero {
-      text-align:center;
-      margin-bottom:18px;
-    }
-    .night-hero img {
-      width:140px;
+    .night-hero { text-align:center; margin-bottom:18px; }
+    .night-hero img { width:140px; height:140px; border-radius:50%; object-fit:cover; border: 3px solid rgba(255,255,255,0.06); box-shadow: 0 12px 50px rgba(0,160,220,0.35); animation: floaty 6s ease-in-out infinite, photoGlow 3.8s ease-in-out infinite; }
+    @keyframes photoGlow { 0% { box-shadow: 0 8px 40px rgba(0,140,200,0.20); } 50% { box-shadow: 0 18px 80px rgba(0,220,255,0.45); } 100% { box-shadow: 0 8px 40px rgba(0,140,200,0.20); } }
+
+    /* two image-card placeholders (bigger) */
+    .image-cards { display:flex; gap:14px; width:100%; justify-content:center; margin-bottom:18px; flex-wrap:wrap; }
+    .image-card {
+      width: calc(50% - 20px);
+      min-width:200px;
       height:140px;
-      border-radius:50%;
-      object-fit:cover;
-      border: 3px solid rgba(255,255,255,0.06);
-      box-shadow: 0 12px 50px rgba(0, 160, 220, 0.35);
-      animation: floaty 6s ease-in-out infinite, photoGlow 3.8s ease-in-out infinite;
-    }
-    @keyframes photoGlow {
-      0% { box-shadow: 0 8px 40px rgba(0,140,200,0.20); }
-      50% { box-shadow: 0 18px 80px rgba(0,220,255,0.45); }
-      100% { box-shadow: 0 8px 40px rgba(0,140,200,0.20); }
-    }
-
-    /* blank floating cards (night) */
-    .night-grid {
-      display:grid;
-      grid-template-columns:1fr;
-      gap:18px;
-      margin-top:12px;
-    }
-    @media(min-width:880px){ .night-grid{ grid-template-columns:1fr 1fr; } }
-
-    .night-card {
       border-radius:14px;
-      padding:20px;
-      backdrop-filter: blur(6px);
       background: rgba(255,255,255,0.03);
-      min-height:86px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-      transition: transform 520ms cubic-bezier(.2,.9,.3,1), box-shadow 520ms;
-      animation: bob 6s ease-in-out infinite;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.6);
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(255,255,255,0.4);
+      font-weight:700;
+      transition: transform .25s;
     }
-    @keyframes bob {
-      0%{ transform: translateY(0); }
-      50%{ transform: translateY(-6px); }
-      100%{ transform: translateY(0); }
+    .image-card:hover { transform: translateY(-6px); }
+
+    @media(max-width:720px){
+      .image-card { width:100%; }
     }
 
+    /* blank smaller cards grid below image cards */
+    .night-grid { display:grid; grid-template-columns:1fr; gap:18px; width:100%; margin-top:12px; }
+    @media(min-width:880px){ .night-grid{ grid-template-columns:1fr 1fr; } }
+    .night-card { border-radius:14px; padding:20px; backdrop-filter: blur(6px); background: rgba(255,255,255,0.03); min-height:86px; box-shadow: 0 12px 30px rgba(0,0,0,0.6); transition: transform 520ms cubic-bezier(.2,.9,.3,1), box-shadow 520ms; animation: bob 6s ease-in-out infinite; }
+    @keyframes bob { 0%{ transform: translateY(0); } 50%{ transform: translateY(-6px); } 100%{ transform: translateY(0); } }
     .night-card.c { background: linear-gradient(180deg, rgba(255,218,185,0.12), rgba(255,218,185,0.04)); }
     .night-card.html { background: linear-gradient(180deg, rgba(176,224,230,0.12), rgba(176,224,230,0.04)); }
     .night-card.js { background: linear-gradient(180deg, rgba(255,228,181,0.12), rgba(255,228,181,0.04)); }
@@ -365,41 +186,18 @@
     .night-card.python { background: linear-gradient(180deg, rgba(152,251,152,0.12), rgba(152,251,152,0.04)); }
     .night-card.learn { background: linear-gradient(180deg, rgba(255,182,193,0.12), rgba(255,182,193,0.04)); }
 
-    /* bottom area for back button */
     .night-footer { text-align:center; margin-top:18px; position:relative; z-index:3; }
-
-    .btn {
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:10px;
-      background: rgba(255,255,255,0.06);
-      color: #e6fbff;
-      border: 1px solid rgba(255,255,255,0.06);
-      cursor:pointer;
-      font-weight:700;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-    }
-    .btn:active { transform: translateY(2px) }
-    .btn:hover { background: rgba(255,255,255,0.09); }
-
-    @media(max-width:520px){
-      .night-hero img{ width:120px; height:120px; }
-      .night-card { padding:16px; min-height:80px; }
-    }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; background: rgba(255,255,255,0.06); color: #e6fbff; border: 1px solid rgba(255,255,255,0.06); cursor:pointer; font-weight:700; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+    .btn:active { transform: translateY(2px) } .btn:hover { background: rgba(255,255,255,0.09); }
 
   </style>
 </head>
 <body>
-
-  <!-- root wrapper toggles night-mode class -->
   <div id="appRoot" class="root">
-    <!-- top-right button -->
-    <button id="modeToggle" class="mode-btn" aria-pressed="false">Go to Night Mode 🌙</button>
 
-    <!-- pages container -->
     <div class="pages">
 
-      <!-- ========== PAGE 1 (DAY) - EXACT CONTENT YOU PROVIDED ========== -->
+      <!-- PAGE 1 (DAY) -->
       <div class="page">
         <div class="day-wrap">
           <div class="hero">
@@ -502,26 +300,28 @@
           <footer>
             Built with ❤️ — Venkat’s Digital Room © 2025
           </footer>
+
+          <!-- Enter Night button (only enters when clicked) -->
+          <div style="text-align:center;">
+            <button id="enterNightBtn" class="enter-night-btn">Go to Night Mode 🌙</button>
+          </div>
+
         </div>
       </div>
 
-      <!-- ========== PAGE 2 (NIGHT MODE) ========== -->
+      <!-- PAGE 2 (NIGHT MODE) -->
       <div class="page">
         <div class="night-wrap">
           <div class="night-bg" aria-hidden="true">
-            <!-- layered SVG waves -->
             <svg class="wave-svg wave-a" viewBox="0 0 1200 200" preserveAspectRatio="none" style="height:40vh;">
               <path d="M0,120 C150,180 350,40 600,90 C850,140 1050,60 1200,120 L1200,200 L0,200 Z"></path>
             </svg>
-
             <svg class="wave-svg wave-b" viewBox="0 0 1200 200" preserveAspectRatio="none" style="height:38vh;">
               <path d="M0,100 C150,20 350,180 600,120 C850,60 1050,140 1200,100 L1200,200 L0,200 Z"></path>
             </svg>
-
             <svg class="wave-svg wave-c" viewBox="0 0 1200 200" preserveAspectRatio="none" style="height:34vh;">
               <path d="M0,110 C150,150 350,60 600,110 C850,160 1050,80 1200,110 L1200,200 L0,200 Z"></path>
             </svg>
-
             <div class="moon-reflection"></div>
           </div>
 
@@ -530,6 +330,13 @@
               <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat's Photo">
             </div>
 
+            <!-- TWO image-card sections (you'll put images inside them later) -->
+            <div class="image-cards">
+              <div class="image-card" id="https://i.postimg.cc/854rGX41/d2fca298b8decf207639c3abf92d3939.jpg">Image Card 1 (place image here)</div>
+              <div class="image-card" id="https://i.postimg.cc/pVBgNQHH/0ad8e7b3d39a18b32d47ad4b208a095d.jpg">Image Card 2 (place image here)</div>
+            </div>
+
+            <!-- blank cards (same number as page1 but empty) -->
             <div class="night-grid">
               <div class="night-card c"></div>
               <div class="night-card html"></div>
@@ -540,7 +347,7 @@
             </div>
 
             <div class="night-footer">
-              <button id="backBtn" class="btn">Back to Day Mode ☀️</button>
+              <button id="backToDayBtn" class="btn">Back to Day Mode ☀️</button>
             </div>
           </div>
         </div>
@@ -550,35 +357,28 @@
   </div><!-- .root -->
 
   <script>
-    // Button-only mode: toggle night-mode class on root container
+    // BUTTON-ONLY navigation (no swipe)
     (function(){
-      const appRoot = document.getElementById('appRoot');
-      const toggle = document.getElementById('modeToggle');
-      const back = document.getElementById('backBtn');
+      const root = document.getElementById('appRoot');
+      const enterBtn = document.getElementById('enterNightBtn');
+      const backBtn = document.getElementById('backToDayBtn');
 
-      function enterNight() {
-        appRoot.classList.add('night-mode');
-        toggle.textContent = 'Back to Day Mode ☀️';
-        toggle.setAttribute('aria-pressed','true');
-        // focus the back button after animation completes
-        setTimeout(()=> back && back.focus(), 1200);
-      }
-      function exitNight() {
-        appRoot.classList.remove('night-mode');
-        toggle.textContent = 'Go to Night Mode 🌙';
-        toggle.setAttribute('aria-pressed','false');
-        toggle.focus();
-      }
-
-      toggle.addEventListener('click', () => {
-        if (appRoot.classList.contains('night-mode')) exitNight();
-        else enterNight();
+      enterBtn.addEventListener('click', () => {
+        // enter night mode (slide left)
+        root.classList.add('night-mode');
+        // move keyboard focus to back button for accessibility after transition
+        setTimeout(()=> backBtn && backBtn.focus(), 1200);
       });
 
-      back.addEventListener('click', exitNight);
+      backBtn.addEventListener('click', () => {
+        // exit night mode (slide right)
+        root.classList.remove('night-mode');
+        // focus enter button after returning
+        setTimeout(()=> enterBtn && enterBtn.focus(), 400);
+      });
 
-      // disable swipe behaviour (button mode only) — no touch handlers added
+      // ensure no touch/swipe toggling — user asked button-only
     })();
   </script>
 </body>
-              </html>
+                      </html>
