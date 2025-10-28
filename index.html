@@ -20,7 +20,7 @@
       --color-learn:#FFB6C1;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;overflow-x:hidden;}
+    html,body{height:100%;}
     body{
       font-family:"Inter",system-ui,Arial,Helvetica,sans-serif;
       background:linear-gradient(to right,#ff7e5f,#feb47b);
@@ -90,77 +90,23 @@
 
     /* --- Dark Page --- */
     #page2{
-      position:relative;
+      background:radial-gradient(circle at top,#00111a,#000);
       color:white;min-height:100vh;
-      display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;
-      overflow:hidden;padding-top:60px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
     }
-
-    /* --- Background Video --- */
-    #page2 video{
-      position:absolute;
-      top:0;left:0;width:100%;height:100%;
-      object-fit:cover;
-      z-index:-1;
-      opacity:0.85;
-    }
-
-    /* glowing heading */
-    #page2 h1{
-      font-family:"Montserrat",sans-serif;
-      font-weight:900;
-      font-size:clamp(28px,6vw,48px);
-      color:#e6f9ff;
-      text-shadow:0 0 12px #00eaff,0 0 28px rgba(0,238,255,0.25);
-      margin-bottom:8px;
-      animation:glow 3s ease-in-out infinite alternate;
-    }
-    @keyframes glow{from{text-shadow:0 0 10px #00eaff,0 0 22px rgba(0,238,255,0.18);}to{text-shadow:0 0 18px #00ffff,0 0 40px rgba(0,255,255,0.25);}}
-
     .dark-card{
-      width:720px;max-width:92%;height:180px;margin:14px;border-radius:14px;overflow:hidden;
-      background:rgba(0,0,0,0.25);box-shadow:0 8px 30px rgba(0,200,255,0.06);
-      backdrop-filter:blur(6px);transition:box-shadow .4s,transform .4s;
+      width:320px;height:200px;margin:20px;border-radius:20px;overflow:hidden;
+      background:rgba(255,255,255,0.05);box-shadow:0 0 20px rgba(255,255,255,0.15);
+      backdrop-filter:blur(8px);animation:floaty 6s ease-in-out infinite;transition:transform .4s;
     }
-    .dark-card img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.95);}
-
-    /* photo stack at bottom (one above the other) */
-    .photo-stack{
-      width:100%;max-width:720px;display:flex;flex-direction:column;align-items:center;gap:18px;
-      margin-top:auto;padding:40px 0 60px;
-    }
-    .photo-stack .photo{
-      width:100%;height:260px;border-radius:12px;overflow:hidden;background:rgba(255,255,255,0.03);
-      box-shadow:0 8px 30px rgba(0,200,255,0.08);
-      transition:transform .5s,box-shadow .6s;
-      position:relative;
-    }
-    .photo-stack .photo img{width:100%;height:100%;object-fit:cover;display:block;}
-    /* slight glow animation */
-    .photo-stack .photo::after{
-      content:"";
-      position:absolute;inset:0;border-radius:12px;pointer-events:none;
-      box-shadow:0 0 18px rgba(0,230,255,0.06);
-      transition:box-shadow .4s;
-    }
-    .photo-stack .photo:hover{
-      transform:translateY(-6px);
-      box-shadow:0 18px 60px rgba(0,200,255,0.12);
-    }
-    .photo-stack .photo:hover::after{
-      box-shadow:0 0 36px rgba(0,230,255,0.14);
-    }
-
-    /* ensure page1 scroll works while page2 is fixed */
-    #page1{position:relative;}
-    #page1 .wrap{position:relative;}
-    /* page2 content should be above video */
-    #page2 > *{position:relative;z-index:1;}
+    .dark-card:hover{transform:translateY(-8px) scale(1.03);}
+    .dark-card img{width:100%;height:100%;object-fit:cover;border-radius:20px;opacity:0.9;transition:opacity .3s;}
+    .dark-card:hover img{opacity:1;}
   </style>
 </head>
 <body>
 
-<!-- PAGE 1 (completely unchanged with YouTube links) -->
+<!-- PAGE 1 -->
 <div id="page1" class="page active">
   <div class="wrap">
     <div class="hero">
@@ -173,8 +119,8 @@
       <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat's Photo">
     </div>
 
+    <!-- Your original YouTube cards (untouched) -->
     <div class="grid">
-      <!-- ✅ All your original YouTube links kept intact -->
       <section class="section c-section" style="--i:1">
         <h2>💻 C & C++ / Java</h2>
         <div class="meta"><span class="badge beginner">Beginner</span><span>Curated playlists</span></div>
@@ -241,6 +187,7 @@
       </section>
     </div>
 
+    <!-- Button to Page 2 -->
     <button id="toDark" class="switch-btn">Enter Dark Mode 🌙</button>
     <footer>Built with ❤️ — Venkat’s Digital Room © 2025</footer>
   </div>
@@ -248,24 +195,14 @@
 
 <!-- PAGE 2 -->
 <div id="page2" class="page">
-  <video autoplay muted loop playsinline>
-    <source src="thor.mp4" type="video/mp4">
-  </video>
-
   <h1>Welcome to the Dark Mode 🌌</h1>
-  <p style="color:#e6f9ff;margin-bottom:18px;">Your glowing gallery space</p>
+  <p>Your gallery space</p>
 
-  <div class="dark-card" style="max-width:720px;margin:12px auto;">
-    
-
-  <!-- stacked rectangular photos at bottom (your provided URLs) -->
-  <div class="photo-stack">
-    <div class="photo">
-      <img src="https://i.postimg.cc/Sx26jPh0/2fdea1e0dc99547972a3b2164c05cd2f.jpg" alt="Photo 1">
-    </div>
-    <div class="photo">
-      <img src="https://i.postimg.cc/fyP3NwkT/d2fca298b8decf207639c3abf92d3939.jpg" alt="Photo 2">
-    </div>
+  <div class="dark-card">
+    <img src="https://i.postimg.cc/Sx26jPh0/2fdea1e0dc99547972a3b2164c05cd2f.jpg" alt="Your Image 1">
+  </div>
+  <div class="dark-card">
+    <img src="https://i.postimg.cc/fyP3NwkT/d2fca298b8decf207639c3abf92d3939.jpg" alt="Your Image 2">
   </div>
 
   <button id="toLight" class="switch-btn">Back to Light Mode ☀️</button>
@@ -280,15 +217,14 @@
   toDark.addEventListener('click',()=>{
     page1.classList.remove('active');
     page2.classList.add('active');
-    // ensure page2 scroll to top when opened
-    window.scrollTo({top:0,behavior:'smooth'});
+    document.body.style.background='black';
   });
 
   toLight.addEventListener('click',()=>{
     page2.classList.remove('active');
     page1.classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
+    document.body.style.background='linear-gradient(to right,#ff7e5f,#feb47b)';
   });
 </script>
 </body>
-                                                                                                                          </html>
+</html>
