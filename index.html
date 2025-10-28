@@ -6,7 +6,7 @@
   <title>VENKAT'S DIGITAL ROOM</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root{
       --bg:#f0f0f0;
       --muted:#222;
       --link:#103d7a;
@@ -20,21 +20,31 @@
       --color-learn:#FFB6C1;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:"Inter",system-ui,Arial,Helvetica,sans-serif;}
-    body{background:linear-gradient(to right,#ff7e5f,#feb47b);color:#333;padding:20px;display:flex;justify-content:center;transition:background 1s ease;}
+    html,body{height:100%;}
+    body{
+      font-family:"Inter",system-ui,Arial,Helvetica,sans-serif;
+      background:linear-gradient(to right,#ff7e5f,#feb47b);
+      color:#333;padding:20px;
+      display:flex;justify-content:center;
+      transition:background 1s ease;
+    }
     .wrap{width:100%;max-width:960px;margin:0 auto 60px;}
-
     @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
-    .hero{background:#fff;border-radius:18px;padding:30px 20px;margin-bottom:25px;text-align:center;
-      box-shadow:0 10px 30px var(--shadow);animation:floaty 6s ease-in-out infinite;}
+    /* --- Hero --- */
+    .hero{
+      background:#fff;border-radius:18px;padding:30px 20px;margin-bottom:25px;text-align:center;
+      box-shadow:0 10px 30px var(--shadow);animation:floaty 6s ease-in-out infinite;
+    }
     .hero h1{font-family:"Montserrat",sans-serif;font-weight:900;font-size:clamp(28px,6vw,54px);line-height:1.1;}
     .hero p{margin-top:8px;color:#555;font-weight:600;}
 
+    /* --- Photo Section --- */
     .photo-section{text-align:center;margin:20px 0 40px;animation:floaty 7s ease-in-out infinite;}
     .photo-section img{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.8);
       box-shadow:0 0 25px rgba(255,255,255,0.4);}
 
+    /* --- Grid --- */
     .grid{display:grid;grid-template-columns:1fr;gap:20px;}
     @media(min-width:880px){.grid{grid-template-columns:1fr 1fr;}}
 
@@ -54,6 +64,7 @@
     a.resource:hover{color:var(--accent);}
     footer{text-align:center;font-size:13px;color:#555;margin-top:25px;}
 
+    /* --- Section colors --- */
     .c-section{background:var(--color-c);}
     .html-section{background:var(--color-html);}
     .js-section{background:var(--color-js);}
@@ -63,32 +74,34 @@
     .badge.beginner{background:#ff7e5f;}
     .badge.core{background:#fdb813;}
     .badge.mustknow{background:#4caf50;}
+    @media(max-width:480px){.section h2{font-size:20px;}ul.links li{font-size:16px;margin:10px 0;}}
 
-    @media(max-width:480px){
-      .section h2{font-size:20px;}
-      ul.links li{font-size:16px;margin:10px 0;}
-    }
-
-    /* Page transition fade */
-    .page {opacity:0;visibility:hidden;position:absolute;top:0;left:0;width:100%;transition:opacity .7s ease;}
+    /* --- Page transition fade --- */
+    .page{opacity:0;visibility:hidden;position:absolute;top:0;left:0;width:100%;transition:opacity .7s ease;}
     .page.active{opacity:1;visibility:visible;position:relative;}
 
-    /* Dark mode page */
-    #page2{background:radial-gradient(circle at top left,#111,#000);color:white;min-height:100vh;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
-    .dark-card{width:320px;height:200px;margin:20px;border-radius:20px;overflow:hidden;
-      background:rgba(255,255,255,0.05);box-shadow:0 0 20px rgba(255,255,255,0.1);
-      backdrop-filter:blur(8px);animation:floaty 6s ease-in-out infinite;transition:transform .4s;}
-    .dark-card:hover{transform:translateY(-8px) scale(1.03);}
-    .dark-card img{width:100%;height:100%;object-fit:cover;border-radius:20px;opacity:0.9;transition:opacity .3s;}
-    .dark-card:hover img{opacity:1;}
-
+    /* --- Buttons --- */
     button.switch-btn{margin-top:25px;padding:12px 26px;border:none;border-radius:10px;font-weight:700;
       cursor:pointer;font-size:16px;transition:all .3s;}
     #toDark{background:#333;color:#fff;}
     #toDark:hover{background:#000;}
     #toLight{background:#fff;color:#000;}
     #toLight:hover{background:#ddd;}
+
+    /* --- Dark Page --- */
+    #page2{
+      background:radial-gradient(circle at top,#00111a,#000);
+      color:white;min-height:100vh;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    }
+    .dark-card{
+      width:320px;height:200px;margin:20px;border-radius:20px;overflow:hidden;
+      background:rgba(255,255,255,0.05);box-shadow:0 0 20px rgba(255,255,255,0.15);
+      backdrop-filter:blur(8px);animation:floaty 6s ease-in-out infinite;transition:transform .4s;
+    }
+    .dark-card:hover{transform:translateY(-8px) scale(1.03);}
+    .dark-card img{width:100%;height:100%;object-fit:cover;border-radius:20px;opacity:0.9;transition:opacity .3s;}
+    .dark-card:hover img{opacity:1;}
   </style>
 </head>
 <body>
@@ -106,8 +119,8 @@
       <img src="https://i.postimg.cc/vmCJBdxW/IMG-20251025-132433.jpg" alt="Venkat's Photo">
     </div>
 
+    <!-- Your original YouTube cards (untouched) -->
     <div class="grid">
-      <!-- C & C++ / Java -->
       <section class="section c-section" style="--i:1">
         <h2>💻 C & C++ / Java</h2>
         <div class="meta"><span class="badge beginner">Beginner</span><span>Curated playlists</span></div>
@@ -120,7 +133,6 @@
         </ul>
       </section>
 
-      <!-- HTML & CSS -->
       <section class="section html-section" style="--i:2">
         <h2>🌐 HTML & CSS</h2>
         <div class="meta"><span class="badge beginner">Beginner</span><span>Interactive & projects</span></div>
@@ -130,10 +142,53 @@
           <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank">PythonLife - HTML/CSS (Telugu)</a></li>
         </ul>
       </section>
+
+      <section class="section js-section" style="--i:3">
+        <h2>📜 JavaScript</h2>
+        <div class="meta"><span class="badge core">Core</span><span>Interactive & projects</span></div>
+        <ul class="links">
+          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Apna College - JavaScript (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@CollegeWallah" target="_blank">College Wallah - JavaScript (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@PythonLife" target="_blank">PythonLife - JavaScript (Telugu)</a></li>
+        </ul>
+      </section>
+
+      <section class="section git-section" style="--i:4">
+        <h2>🗂️ Git</h2>
+        <div class="meta"><span class="badge mustknow">Must Know</span><span>Workflow & GitHub</span></div>
+        <ul class="links">
+          <li><a class="resource" href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Git & GitHub - Apna College (Hindi)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@AlphaKnowledge" target="_blank">Alpha Knowledge - Git (Telugu)</a></li>
+          <li><a class="resource" href="https://www.youtube.com/@WscubeTech" target="_blank">WsCube Git (English)</a></li>
+        </ul>
+      </section>
+
+      <section class="section python-section" style="--i:5">
+        <h2>🐍 Python</h2>
+        <ul class="links">
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0&si=HkUSt1cCjaoWd2xs" target="_blank">Alpha College Python (Hindi)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLBlnK6fEyqRiueC_HzwFallNO76hfXBB7&si=8rwne_DkzEMThWpG" target="_blank">Neso Academy Python (English)</a></li>
+          <li><a class="resource" href="https://youtu.be/fHKPQEVCX-s?si=tAg9HPPL-Hptkp9v" target="_blank">Swaroop Python (Telugu)</a></li>
+          <li><a class="resource" href="https://youtu.be/h1WdbfoHeac?si=3RmXs42jUqSTHzOl" target="_blank">Python Life Python (Telugu)</a></li>
+          <li><a class="resource" href="https://youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3&si=GjnMLTYw6p_LOqnd" target="_blank">Telsuko Python (English)</a></li>
+        </ul>
+      </section>
+
+      <section class="section learn-section" style="--i:6">
+        <h2>🎯 Learn New</h2>
+        <ul class="links">
+          <li><a class="resource" href="https://youtu.be/_lChLN570VI?si=djGWjL1Ti5dn3lpS" target="_blank">Built an app</a></li>
+          <li><a class="resource" href="https://youtu.be/dJeSe2RyoN4?si=I8pjjyKgQuveT2nI" target="_blank">UPSC</a></li>
+          <li><a class="resource" href="https://youtu.be/rmqSS3IQ4d0?si=oniyAZQDm2AwaEb3" target="_blank">Mahabharat</a></li>
+          <li><a class="resource" href="https://youtu.be/TixjiIkB2zU?si=tak2LBLXRpLC_ogS" target="_blank">Mock interview</a></li>
+          <li><a class="resource" href="https://drive.google.com/drive/u/0/folders/0BwrkXzyUvQ_gbnZ3TjBxbkd0azA?resourcekey=0-hz2Xp1GCdFBAJXVJWIpiAg" target="_blank">Drive for Aptitude</a></li>
+          <li><a class="resource" href="https://btechvault.vercel.app" target="_blank">B Tech imp PDF</a></li>
+        </ul>
+      </section>
     </div>
 
+    <!-- Button to Page 2 -->
     <button id="toDark" class="switch-btn">Enter Dark Mode 🌙</button>
-
     <footer>Built with ❤️ — Venkat’s Digital Room © 2025</footer>
   </div>
 </div>
@@ -141,13 +196,13 @@
 <!-- PAGE 2 -->
 <div id="page2" class="page">
   <h1>Welcome to the Dark Mode 🌌</h1>
-  <p>Your visual gallery awaits below:</p>
+  <p>Your gallery space</p>
 
   <div class="dark-card">
     <img src="https://i.postimg.cc/854rGX41/d2fca298b8decf207639c3abf92d3939.jpg" alt="Your Image 1">
   </div>
   <div class="dark-card">
-    <img src="https://i.postimg.cc/pVBgNQHH/0ad8e7b3d39a18b32d47ad4b208a095d.jpg" alt="Your Image 2">
+    <img src="https://i.postimg.cc/cLFhG8fJ/2fdea1e0dc99547972a3b2164c05cd2f.jpg" alt="Your Image 2">
   </div>
 
   <button id="toLight" class="switch-btn">Back to Light Mode ☀️</button>
@@ -164,6 +219,7 @@
     page2.classList.add('active');
     document.body.style.background='black';
   });
+
   toLight.addEventListener('click',()=>{
     page2.classList.remove('active');
     page1.classList.add('active');
